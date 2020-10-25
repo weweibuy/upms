@@ -9,14 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>upms-launcher</artifactId>
+    <artifactId>upms-user</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.weweibuy.upms</groupId>
-            <artifactId>upms-user</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.weweibuy.upms</groupId>
             <artifactId>upms-api</artifactId>

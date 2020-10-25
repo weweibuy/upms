@@ -1,4 +1,4 @@
-package com.weweibuy.upms.model.dto.request;
+package com.weweibuy.upms.model.dto.response;
 
 import lombok.Data;
 

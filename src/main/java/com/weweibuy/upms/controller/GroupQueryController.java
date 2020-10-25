@@ -1,9 +1,9 @@
 package com.weweibuy.upms.controller;
 
 import com.weweibuy.framework.common.core.model.dto.CommonDataResponse;
-import com.weweibuy.upms.model.dto.request.UserQueryReqDTO;
-import com.weweibuy.upms.model.dto.response.UserRespDTO;
-import com.weweibuy.upms.service.UserQueryService;
+import com.weweibuy.upms.model.dto.request.GroupQueryReqDTO;
+import com.weweibuy.upms.model.dto.response.GroupRespDTO;
+import com.weweibuy.upms.service.GroupQueryService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,41 +16,40 @@ import java.util.Optional;
 
 /**
  * @author durenhao
- * @date 2020/10/24 21:15
+ * @date 2020/10/25 9:17
  **/
-@RequestMapping("/user/query")
 @RestController
+@RequestMapping("/group/query")
 @RequiredArgsConstructor
-public class UserQueryController {
+public class GroupQueryController {
 
-    private final UserQueryService userQueryService;
+    private final GroupQueryService groupQueryService;
 
     @GetMapping
-    public CommonDataResponse<UserRespDTO> queryUser(String username) {
+    public CommonDataResponse<GroupRespDTO> queryGroup(String username) {
         return Optional.ofNullable(username)
                 .filter(StringUtils::isNotBlank)
-                .map(userQueryService::queryUser)
+                .map(groupQueryService::queryGroup)
                 .map(CommonDataResponse::success)
                 .orElse(CommonDataResponse.success(null));
     }
 
     @GetMapping("/list")
-    public CommonDataResponse<List<UserRespDTO>> queryUser(UserQueryReqDTO queryReqDTO) {
+    public CommonDataResponse<List<GroupRespDTO>> queryGroup(GroupQueryReqDTO queryReqDTO) {
         return Optional.ofNullable(queryReqDTO)
-                .filter(UserQueryReqDTO::isAllEmpty)
-                .map(userQueryService::queryUser)
+                .filter(GroupQueryReqDTO::isAllEmpty)
+                .map(groupQueryService::queryGroup)
                 .map(CommonDataResponse::success)
                 .orElse(CommonDataResponse.success(Collections.emptyList()));
     }
 
     @GetMapping("/count")
-    public CommonDataResponse<Long> countUser(UserQueryReqDTO queryReqDTO) {
+    public CommonDataResponse<Long> countGroup(GroupQueryReqDTO queryReqDTO) {
         return Optional.ofNullable(queryReqDTO)
-                .filter(UserQueryReqDTO::isAllEmpty)
-                .map(userQueryService::countUser)
+                .filter(GroupQueryReqDTO::isAllEmpty)
+                .map(groupQueryService::countGroup)
                 .map(CommonDataResponse::success)
                 .orElse(CommonDataResponse.success(0L));
     }
-
 
 }

@@ -25,10 +25,24 @@ public class UserGroupRepository {
                 .example());
     }
 
+    public List<UserGroup> selectByGroupKey(List<String> groupKeyList) {
+        return userGroupMapper.selectByExample(UserGroupExample.newAndCreateCriteria()
+                .andDeletedEqualTo(false)
+                .andGroupKeyIn(groupKeyList)
+                .example());
+    }
+
     public List<UserGroup> selectByUserName(String username) {
         return userGroupMapper.selectByExample(UserGroupExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andUserNameEqualTo(username)
+                .example());
+    }
+
+    public List<UserGroup> selectByUserName(List<String> usernameList) {
+        return userGroupMapper.selectByExample(UserGroupExample.newAndCreateCriteria()
+                .andDeletedEqualTo(false)
+                .andUserNameIn(usernameList)
                 .example());
     }
 

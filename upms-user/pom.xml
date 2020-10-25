@@ -16,6 +16,11 @@
             <groupId>com.weweibuy.upms</groupId>
             <artifactId>upms-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.weweibuy.upms</groupId>
+            <artifactId>upms-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -12,6 +12,7 @@
         <module>upms-api</module>
         <module>upms-launcher</module>
         <module>upms-user</module>
+        <module>upms-common</module>
     </modules>
 
 
@@ -40,6 +41,11 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.weweibuy.upms</groupId>
+                <artifactId>upms-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.weweibuy.upms</groupId>
@@ -58,32 +64,6 @@
 
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.weweibuy.framework</groupId>
-            <artifactId>common-log</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.weweibuy.framework</groupId>
-            <artifactId>common-mvc</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.weweibuy.framework</groupId>
-            <artifactId>common-db</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.weweibuy.framework</groupId>
-            <artifactId>common-codec</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.weweibuy.framework</groupId>
-            <artifactId>common-core</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

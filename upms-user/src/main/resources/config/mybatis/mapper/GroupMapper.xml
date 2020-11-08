@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.weweibuy.upms.user.mapper.GroupMapper">
   <resultMap id="BaseResultMap" type="com.weweibuy.upms.user.model.po.Group">
-    <result column="id" jdbcType="BIGINT" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="group_key" jdbcType="VARCHAR" property="groupKey" />
     <result column="group_desc" jdbcType="VARCHAR" property="groupDesc" />
@@ -100,6 +100,16 @@
     </if>
      for update
   </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from upms_group
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from upms_group
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
   <delete id="deleteByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample">
     delete from upms_group
     <if test="_parameter != null">
@@ -210,6 +220,40 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.user.model.po.Group">
+    update upms_group
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="groupKey != null">
+        group_key = #{groupKey,jdbcType=VARCHAR},
+      </if>
+      <if test="groupDesc != null">
+        group_desc = #{groupDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null">
+        is_delete = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.user.model.po.Group">
+    update upms_group
+    set name = #{name,jdbcType=VARCHAR},
+      group_key = #{groupKey,jdbcType=VARCHAR},
+      group_desc = #{groupDesc,jdbcType=VARCHAR},
+      is_delete = #{deleted,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectOneByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
     select

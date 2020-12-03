@@ -16,6 +16,12 @@
             <groupId>com.weweibuy.framework</groupId>
             <artifactId>common-feign</artifactId>
         </dependency>
+
+        <dependency>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -26,7 +32,7 @@
                 <executions>
                     <execution>
                         <!-- 绑定source插件到Maven的生命周期 -->
-                        <phase>compile</phase>
+                        <phase>install</phase>
                         <!--在生命周期后执行绑定的source插件的goals -->
                         <goals>
                             <goal>jar-no-fork</goal>

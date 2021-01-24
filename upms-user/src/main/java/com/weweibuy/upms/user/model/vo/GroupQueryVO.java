@@ -1,6 +1,6 @@
 package com.weweibuy.upms.user.model.vo;
 
-import com.weweibuy.framework.common.core.utils.Jdk9Option;
+import com.weweibuy.framework.common.core.utils.OptionalEnhance;
 import com.weweibuy.upms.api.user.dto.request.GroupQueryReqDTO;
 import com.weweibuy.upms.user.manager.UserGroupManager;
 import lombok.Data;
@@ -40,7 +40,7 @@ public class GroupQueryVO {
         List<String> usernameList = queryReqDTO.username();
         if (CollectionUtils.isNotEmpty(usernameList)) {
             List<String> groupKeyList = userGroupManager.usernameToGroupKey(usernameList);
-            Jdk9Option.ofNullable(groupQueryVO.getGroupKeyList())
+            OptionalEnhance.ofNullable(groupQueryVO.getGroupKeyList())
                     .ifPresentOrElse(list -> list.addAll(groupKeyList),
                             () -> groupQueryVO.setGroupKeyList(groupKeyList));
         }

@@ -26,6 +26,12 @@
             <groupId>com.weweibuy.upms</groupId>
             <artifactId>upms-common</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.weweibuy.upms</groupId>
+            <artifactId>upms-permission</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

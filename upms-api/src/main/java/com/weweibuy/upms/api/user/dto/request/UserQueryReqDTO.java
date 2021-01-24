@@ -1,6 +1,6 @@
 package com.weweibuy.upms.api.user.dto.request;
 
-import com.weweibuy.framework.common.core.utils.Jdk9Option;
+import com.weweibuy.framework.common.core.utils.OptionalEnhance;
 import lombok.Data;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -37,7 +37,7 @@ public class UserQueryReqDTO {
 
     public List<String> groupKey() {
         if (ArrayUtils.isNotEmpty(groupKeyList) || StringUtils.isNotBlank(groupKey)) {
-            return Jdk9Option.ofNullable(groupKeyList)
+            return OptionalEnhance.ofNullable(groupKeyList)
                     .map(Arrays::asList)
                     .peek(list ->
                             Optional.ofNullable(groupKey)

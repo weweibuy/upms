@@ -9,17 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>upms-user</artifactId>
+    <artifactId>upms-permission</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.weweibuy.upms</groupId>
-            <artifactId>upms-api</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.weweibuy.upms</groupId>
             <artifactId>upms-common</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>

@@ -7,8 +7,10 @@ import com.weweibuy.upms.permission.model.example.ApiDataPermissionFieldExample;
 import com.weweibuy.upms.permission.model.po.ApiDataPermission;
 import com.weweibuy.upms.permission.model.po.ApiDataPermissionField;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +37,9 @@ public class ApiDataPermissionRepository {
 
 
     public List<ApiDataPermissionField> selectField(List<String> apiCodeList) {
+        if (CollectionUtils.isEmpty(apiCodeList)) {
+            return Collections.emptyList();
+        }
         return apiDataPermissionFieldMapper.selectByExample(ApiDataPermissionFieldExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andApiCodeIn(apiCodeList)
@@ -50,6 +55,9 @@ public class ApiDataPermissionRepository {
     }
 
     public List<ApiDataPermission> selectDataPermission(List<String> dataCodeList) {
+        if (CollectionUtils.isEmpty(dataCodeList)) {
+            return Collections.emptyList();
+        }
         return apiDataPermissionMapper.selectByExample(ApiDataPermissionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andDataCodeIn(dataCodeList)

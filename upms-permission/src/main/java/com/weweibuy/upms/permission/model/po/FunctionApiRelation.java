@@ -11,9 +11,9 @@ public class FunctionApiRelation {
     private Long id;
 
     /**
-     * 接口名
+     * 接口代码
      */
-    private String apiName;
+    private String apiCode;
 
     /**
      * 功能代码

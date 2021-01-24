@@ -203,73 +203,73 @@ public class FunctionApiRelationExample {
             return (Criteria) this;
         }
 
-        public Criteria andApiNameIsNull() {
-            addCriterion("api_name is null");
+        public Criteria andApiCodeIsNull() {
+            addCriterion("api_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameIsNotNull() {
-            addCriterion("api_name is not null");
+        public Criteria andApiCodeIsNotNull() {
+            addCriterion("api_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameEqualTo(String value) {
-            addCriterion("api_name =", value, "apiName");
+        public Criteria andApiCodeEqualTo(String value) {
+            addCriterion("api_code =", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameNotEqualTo(String value) {
-            addCriterion("api_name <>", value, "apiName");
+        public Criteria andApiCodeNotEqualTo(String value) {
+            addCriterion("api_code <>", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameGreaterThan(String value) {
-            addCriterion("api_name >", value, "apiName");
+        public Criteria andApiCodeGreaterThan(String value) {
+            addCriterion("api_code >", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameGreaterThanOrEqualTo(String value) {
-            addCriterion("api_name >=", value, "apiName");
+        public Criteria andApiCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("api_code >=", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameLessThan(String value) {
-            addCriterion("api_name <", value, "apiName");
+        public Criteria andApiCodeLessThan(String value) {
+            addCriterion("api_code <", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameLessThanOrEqualTo(String value) {
-            addCriterion("api_name <=", value, "apiName");
+        public Criteria andApiCodeLessThanOrEqualTo(String value) {
+            addCriterion("api_code <=", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameLike(String value) {
-            addCriterion("api_name like", value, "apiName");
+        public Criteria andApiCodeLike(String value) {
+            addCriterion("api_code like", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameNotLike(String value) {
-            addCriterion("api_name not like", value, "apiName");
+        public Criteria andApiCodeNotLike(String value) {
+            addCriterion("api_code not like", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameIn(List<String> values) {
-            addCriterion("api_name in", values, "apiName");
+        public Criteria andApiCodeIn(List<String> values) {
+            addCriterion("api_code in", values, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameNotIn(List<String> values) {
-            addCriterion("api_name not in", values, "apiName");
+        public Criteria andApiCodeNotIn(List<String> values) {
+            addCriterion("api_code not in", values, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameBetween(String value1, String value2) {
-            addCriterion("api_name between", value1, value2, "apiName");
+        public Criteria andApiCodeBetween(String value1, String value2) {
+            addCriterion("api_code between", value1, value2, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andApiNameNotBetween(String value1, String value2) {
-            addCriterion("api_name not between", value1, value2, "apiName");
+        public Criteria andApiCodeNotBetween(String value1, String value2) {
+            addCriterion("api_code not between", value1, value2, "apiCode");
             return (Criteria) this;
         }
 

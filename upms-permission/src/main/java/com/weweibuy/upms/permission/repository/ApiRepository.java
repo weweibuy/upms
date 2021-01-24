@@ -7,8 +7,10 @@ import com.weweibuy.upms.permission.model.example.FunctionApiRelationExample;
 import com.weweibuy.upms.permission.model.po.Api;
 import com.weweibuy.upms.permission.model.po.FunctionApiRelation;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +38,9 @@ public class ApiRepository {
 
 
     public List<FunctionApiRelation> selectFunctionApiRelation(List<String> functionCodeList) {
+        if (CollectionUtils.isEmpty(functionCodeList)) {
+            return Collections.emptyList();
+        }
         return functionApiRelationMapper.selectByExample(FunctionApiRelationExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andFunctionCodeIn(functionCodeList)
@@ -51,6 +56,9 @@ public class ApiRepository {
     }
 
     public List<Api> selectApi(List<String> apiCodeList) {
+        if (CollectionUtils.isEmpty(apiCodeList)) {
+            return Collections.emptyList();
+        }
         return apiMapper.selectByExample(ApiExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andApiCodeIn(apiCodeList)

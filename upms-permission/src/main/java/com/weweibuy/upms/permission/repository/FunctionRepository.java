@@ -8,8 +8,10 @@ import com.weweibuy.upms.permission.model.example.FunctionPermissionExample;
 import com.weweibuy.upms.permission.model.po.Function;
 import com.weweibuy.upms.permission.model.po.FunctionPermission;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +31,9 @@ public class FunctionRepository {
 
 
     public List<FunctionPermission> selectFunctionPermission(List<String> userSymbolList, UserSymbolTypeEum userSymbolType) {
+        if (CollectionUtils.isEmpty(userSymbolList)) {
+            return Collections.emptyList();
+        }
         return functionPermissionMapper.selectByExample(FunctionPermissionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andUserSymbolIn(userSymbolList)
@@ -46,6 +51,9 @@ public class FunctionRepository {
 
 
     public List<Function> selectFunction(List<String> functionCodeList) {
+        if (CollectionUtils.isEmpty(functionCodeList)) {
+            return Collections.emptyList();
+        }
         return functionMapper.selectByExample(FunctionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andFunctionCodeIn(functionCodeList)
@@ -59,15 +67,18 @@ public class FunctionRepository {
                 .example()));
     }
 
-    public Optional<Function> selectChildFunction(String functionCode) {
-        return Optional.ofNullable(functionMapper.selectOneByExample(FunctionExample.newAndCreateCriteria()
+    public List<Function> selectChildFunction(String functionCode) {
+        return functionMapper.selectByExample(FunctionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andParentFunctionCodeEqualTo(functionCode)
-                .example()));
+                .example());
     }
 
 
     public List<Function> selectChildFunction(List<String> functionCodeList) {
+        if (CollectionUtils.isEmpty(functionCodeList)) {
+            return Collections.emptyList();
+        }
         return functionMapper.selectByExample(FunctionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andParentFunctionCodeIn(functionCodeList)

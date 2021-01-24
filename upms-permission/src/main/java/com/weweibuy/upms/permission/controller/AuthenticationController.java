@@ -25,9 +25,7 @@ public class AuthenticationController {
 
     @PostMapping("/authentication")
     public CommonDataResponse<UserAuthorizationResp> authentication(@RequestBody @Valid UserAuthorizationReq authorizationReq) {
-        UserAuthorizationResp userAuthorizationResp = new UserAuthorizationResp();
-        userAuthorizationResp.setUsername("tom");
-        return CommonDataResponse.success(userAuthorizationResp);
+        return authenticationService.authentication(authorizationReq);
     }
 
 

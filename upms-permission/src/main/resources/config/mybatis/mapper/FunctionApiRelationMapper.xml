@@ -3,7 +3,7 @@
 <mapper namespace="com.weweibuy.upms.permission.mapper.FunctionApiRelationMapper">
   <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.FunctionApiRelation">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="api_name" jdbcType="VARCHAR" property="apiName" />
+    <result column="api_code" jdbcType="VARCHAR" property="apiCode" />
     <result column="function_code" jdbcType="VARCHAR" property="functionCode" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, api_name, function_code, is_delete, create_time, update_time
+    id, api_code, function_code, is_delete, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionApiRelationExample" resultMap="BaseResultMap">
     select
@@ -116,10 +116,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.weweibuy.upms.permission.model.po.FunctionApiRelation">
-    insert into upms_function_api_relation (id, api_name, function_code, 
+    insert into upms_function_api_relation (id, api_code, function_code, 
       is_delete, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{apiName,jdbcType=VARCHAR}, #{functionCode,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{apiCode,jdbcType=VARCHAR}, #{functionCode,jdbcType=VARCHAR}, 
       #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -129,8 +129,8 @@
       <if test="id != null">
         id,
       </if>
-      <if test="apiName != null">
-        api_name,
+      <if test="apiCode != null">
+        api_code,
       </if>
       <if test="functionCode != null">
         function_code,
@@ -149,8 +149,8 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="apiName != null">
-        #{apiName,jdbcType=VARCHAR},
+      <if test="apiCode != null">
+        #{apiCode,jdbcType=VARCHAR},
       </if>
       <if test="functionCode != null">
         #{functionCode,jdbcType=VARCHAR},
@@ -178,8 +178,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.apiName != null">
-        api_name = #{record.apiName,jdbcType=VARCHAR},
+      <if test="record.apiCode != null">
+        api_code = #{record.apiCode,jdbcType=VARCHAR},
       </if>
       <if test="record.functionCode != null">
         function_code = #{record.functionCode,jdbcType=VARCHAR},
@@ -201,7 +201,7 @@
   <update id="updateByExample" parameterType="map">
     update upms_function_api_relation
     set id = #{record.id,jdbcType=BIGINT},
-      api_name = #{record.apiName,jdbcType=VARCHAR},
+      api_code = #{record.apiCode,jdbcType=VARCHAR},
       function_code = #{record.functionCode,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -213,8 +213,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.permission.model.po.FunctionApiRelation">
     update upms_function_api_relation
     <set>
-      <if test="apiName != null">
-        api_name = #{apiName,jdbcType=VARCHAR},
+      <if test="apiCode != null">
+        api_code = #{apiCode,jdbcType=VARCHAR},
       </if>
       <if test="functionCode != null">
         function_code = #{functionCode,jdbcType=VARCHAR},
@@ -233,7 +233,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.FunctionApiRelation">
     update upms_function_api_relation
-    set api_name = #{apiName,jdbcType=VARCHAR},
+    set api_code = #{apiCode,jdbcType=VARCHAR},
       function_code = #{functionCode,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},

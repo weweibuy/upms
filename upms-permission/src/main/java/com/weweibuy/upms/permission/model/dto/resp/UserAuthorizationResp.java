@@ -14,4 +14,10 @@ public class UserAuthorizationResp {
     private String username;
 
 
+    public static UserAuthorizationResp fromUsername(String username) {
+        UserAuthorizationResp userAuthorizationResp = new UserAuthorizationResp();
+        userAuthorizationResp.setUsername(username);
+        return userAuthorizationResp;
+    }
+
 }

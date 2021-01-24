@@ -9,24 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>upms-user</artifactId>
+    <artifactId>upms-interfaces</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.weweibuy.upms</groupId>
-            <artifactId>upms-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.weweibuy.upms</groupId>
             <artifactId>upms-common</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.weweibuy.upms</groupId>
-            <artifactId>upms-interfaces</artifactId>
-        </dependency>
-
     </dependencies>
-
 </project>

@@ -19,18 +19,23 @@ public class UserGroupManager {
     private final UserGroupRepository userGroupRepository;
 
 
-    public List<String> groupKeyToUsername(List<String> groupKeyList) {
+    public List<String> groupCodeToUsername(List<String> groupKeyList) {
         return userGroupRepository.selectByGroupKey(groupKeyList).stream()
                 .map(UserGroup::getUserName)
                 .distinct()
                 .collect(Collectors.toList());
     }
 
-    public List<String> usernameToGroupKey(List<String> usernameList) {
+    public List<String> usernameToGroupCode(List<String> usernameList) {
         return userGroupRepository.selectByUserName(usernameList).stream()
                 .map(UserGroup::getGroupCode)
                 .distinct()
                 .collect(Collectors.toList());
+    }
+
+
+    public List<UserGroup> queryByUserName(String username) {
+        return userGroupRepository.selectByUserName(username);
     }
 
 }

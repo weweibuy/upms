@@ -2,10 +2,9 @@ package com.weweibuy.upms.permission.mapper;
 
 import com.weweibuy.upms.permission.model.example.ApiDataPermissionFieldExample;
 import com.weweibuy.upms.permission.model.po.ApiDataPermissionField;
+import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 @Mapper
 public interface ApiDataPermissionFieldMapper {

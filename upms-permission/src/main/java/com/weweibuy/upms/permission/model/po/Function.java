@@ -1,8 +1,7 @@
 package com.weweibuy.upms.permission.model.po;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
+import lombok.Data;
 
 @Data
 public class Function {

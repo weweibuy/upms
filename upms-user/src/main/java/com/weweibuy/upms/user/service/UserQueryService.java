@@ -3,8 +3,11 @@ package com.weweibuy.upms.user.service;
 import com.weweibuy.framework.common.core.utils.BeanCopyUtils;
 import com.weweibuy.upms.api.user.dto.request.UserQueryReqDTO;
 import com.weweibuy.upms.api.user.dto.response.UserRespDTO;
+import com.weweibuy.upms.interfaces.user.IUserService;
+import com.weweibuy.upms.interfaces.user.model.IUserGroup;
 import com.weweibuy.upms.user.manager.UserGroupManager;
 import com.weweibuy.upms.user.model.po.User;
+import com.weweibuy.upms.user.model.po.UserGroup;
 import com.weweibuy.upms.user.model.vo.UserQueryVO;
 import com.weweibuy.upms.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +23,7 @@ import java.util.Optional;
  **/
 @Service
 @RequiredArgsConstructor
-public class UserQueryService {
+public class UserQueryService implements IUserService {
 
     private final UserRepository userRepository;
 
@@ -48,4 +51,9 @@ public class UserQueryService {
     }
 
 
+    @Override
+    public List<IUserGroup> queryUserGroup(String username) {
+        List<UserGroup> userGroupList = userGroupManager.queryByUserName(username);
+        return BeanCopyUtils.copyCollection(userGroupList, UserGroup.class, IUserGroup.class);
+    }
 }

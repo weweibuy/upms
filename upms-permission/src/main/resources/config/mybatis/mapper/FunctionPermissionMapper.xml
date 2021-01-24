@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.weweibuy.upms.permission.mapper.ApiDataPermissionMapper">
-  <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.ApiDataPermission">
+<mapper namespace="com.weweibuy.upms.permission.mapper.FunctionPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.FunctionPermission">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="data_code" jdbcType="VARCHAR" property="dataCode" />
     <result column="user_symbol" jdbcType="VARCHAR" property="userSymbol" />
     <result column="symbol_type" jdbcType="VARCHAR" property="symbolType" />
-    <result column="data_value" jdbcType="VARCHAR" property="dataValue" />
+    <result column="function_code" jdbcType="VARCHAR" property="functionCode" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -70,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, data_code, user_symbol, symbol_type, data_value, is_delete, create_time, update_time
+    id, user_symbol, symbol_type, function_code, is_delete, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiDataPermissionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionPermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_api_data_permission
+    from upms_function_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,13 +85,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.ApiDataPermissionExample" resultMap="BaseResultMap">
+  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.FunctionPermissionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_api_data_permission
+    from upms_function_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -104,35 +103,32 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from upms_api_data_permission
+    from upms_function_permission
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from upms_api_data_permission
+    delete from upms_function_permission
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiDataPermissionExample">
-    delete from upms_api_data_permission
+  <delete id="deleteByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionPermissionExample">
+    delete from upms_function_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.weweibuy.upms.permission.model.po.ApiDataPermission">
-    insert into upms_api_data_permission (id, data_code, user_symbol, 
-      symbol_type, data_value, is_delete, 
-      create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{dataCode,jdbcType=VARCHAR}, #{userSymbol,jdbcType=VARCHAR}, 
-      #{symbolType,jdbcType=VARCHAR}, #{dataValue,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.weweibuy.upms.permission.model.po.FunctionPermission">
+    insert into upms_function_permission (id, user_symbol, symbol_type, 
+      function_code, is_delete, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{userSymbol,jdbcType=VARCHAR}, #{symbolType,jdbcType=VARCHAR}, 
+      #{functionCode,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.weweibuy.upms.permission.model.po.ApiDataPermission">
-    insert into upms_api_data_permission
+  <insert id="insertSelective" parameterType="com.weweibuy.upms.permission.model.po.FunctionPermission">
+    insert into upms_function_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
-      </if>
-      <if test="dataCode != null">
-        data_code,
       </if>
       <if test="userSymbol != null">
         user_symbol,
@@ -140,8 +136,8 @@
       <if test="symbolType != null">
         symbol_type,
       </if>
-      <if test="dataValue != null">
-        data_value,
+      <if test="functionCode != null">
+        function_code,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -157,17 +153,14 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="dataCode != null">
-        #{dataCode,jdbcType=VARCHAR},
-      </if>
       <if test="userSymbol != null">
         #{userSymbol,jdbcType=VARCHAR},
       </if>
       <if test="symbolType != null">
         #{symbolType,jdbcType=VARCHAR},
       </if>
-      <if test="dataValue != null">
-        #{dataValue,jdbcType=VARCHAR},
+      <if test="functionCode != null">
+        #{functionCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -180,20 +173,17 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiDataPermissionExample" resultType="java.lang.Long">
-    select count(*) from upms_api_data_permission
+  <select id="countByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionPermissionExample" resultType="java.lang.Long">
+    select count(*) from upms_function_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update upms_api_data_permission
+    update upms_function_permission
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
-      </if>
-      <if test="record.dataCode != null">
-        data_code = #{record.dataCode,jdbcType=VARCHAR},
       </if>
       <if test="record.userSymbol != null">
         user_symbol = #{record.userSymbol,jdbcType=VARCHAR},
@@ -201,8 +191,8 @@
       <if test="record.symbolType != null">
         symbol_type = #{record.symbolType,jdbcType=VARCHAR},
       </if>
-      <if test="record.dataValue != null">
-        data_value = #{record.dataValue,jdbcType=VARCHAR},
+      <if test="record.functionCode != null">
+        function_code = #{record.functionCode,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -219,12 +209,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update upms_api_data_permission
+    update upms_function_permission
     set id = #{record.id,jdbcType=BIGINT},
-      data_code = #{record.dataCode,jdbcType=VARCHAR},
       user_symbol = #{record.userSymbol,jdbcType=VARCHAR},
       symbol_type = #{record.symbolType,jdbcType=VARCHAR},
-      data_value = #{record.dataValue,jdbcType=VARCHAR},
+      function_code = #{record.functionCode,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -232,20 +221,17 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.permission.model.po.ApiDataPermission">
-    update upms_api_data_permission
+  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.permission.model.po.FunctionPermission">
+    update upms_function_permission
     <set>
-      <if test="dataCode != null">
-        data_code = #{dataCode,jdbcType=VARCHAR},
-      </if>
       <if test="userSymbol != null">
         user_symbol = #{userSymbol,jdbcType=VARCHAR},
       </if>
       <if test="symbolType != null">
         symbol_type = #{symbolType,jdbcType=VARCHAR},
       </if>
-      <if test="dataValue != null">
-        data_value = #{dataValue,jdbcType=VARCHAR},
+      <if test="functionCode != null">
+        function_code = #{functionCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -259,21 +245,20 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.ApiDataPermission">
-    update upms_api_data_permission
-    set data_code = #{dataCode,jdbcType=VARCHAR},
-      user_symbol = #{userSymbol,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.FunctionPermission">
+    update upms_function_permission
+    set user_symbol = #{userSymbol,jdbcType=VARCHAR},
       symbol_type = #{symbolType,jdbcType=VARCHAR},
-      data_value = #{dataValue,jdbcType=VARCHAR},
+      function_code = #{functionCode,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectOneByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiDataPermissionExample" resultMap="BaseResultMap">
+  <select id="selectOneByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionPermissionExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_api_data_permission
+    from upms_function_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -282,10 +267,10 @@
     </if>
     limit 1
   </select>
-  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.ApiDataPermissionExample" resultMap="BaseResultMap">
+  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.FunctionPermissionExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_api_data_permission
+    from upms_function_permission
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

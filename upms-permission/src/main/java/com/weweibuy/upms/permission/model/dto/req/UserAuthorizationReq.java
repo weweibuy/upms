@@ -3,6 +3,10 @@ package com.weweibuy.upms.permission.model.dto.req;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpMethod;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * 用户鉴权请求
@@ -15,10 +19,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserAuthorizationReq {
 
+    @NotBlank
     private String service;
 
+    @NotBlank
     private String path;
 
+    @NotNull
+    private HttpMethod httpMethod;
+
+    @NotBlank
     private String authorization;
 
 }

@@ -72,7 +72,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="upms_function_premission" domainObjectName="FunctionPermission" >
+        <table tableName="upms_function_permission" domainObjectName="FunctionPermission" >
             <columnOverride column="is_delete"  property="deleted"  javaType="Boolean"/>
         </table>
 

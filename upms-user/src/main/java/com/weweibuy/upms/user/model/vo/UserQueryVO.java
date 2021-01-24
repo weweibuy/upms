@@ -51,7 +51,7 @@ public class UserQueryVO {
         }
         List<String> groupKeyList = queryReqDTO.groupKey();
         if (CollectionUtils.isNotEmpty(groupKeyList)) {
-            List<String> usernameList = userGroupManager.groupKeyToUsername(groupKeyList);
+            List<String> usernameList = userGroupManager.groupCodeToUsername(groupKeyList);
             OptionalEnhance.ofNullable(userQueryVO.getUsernameList())
                     .ifPresentOrElse(list -> list.addAll(usernameList),
                             () -> userQueryVO.setUsernameList(usernameList));

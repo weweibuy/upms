@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApiDataPermissionExample {
+public class FunctionPermissionExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ApiDataPermissionExample() {
+    public FunctionPermissionExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -45,12 +45,12 @@ public class ApiDataPermissionExample {
         return criteria;
     }
 
-    public ApiDataPermissionExample orderBy(String orderByClause) {
+    public FunctionPermissionExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public ApiDataPermissionExample orderBy(String ... orderByClauses) {
+    public FunctionPermissionExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -82,18 +82,18 @@ public class ApiDataPermissionExample {
     }
 
     public static Criteria newAndCreateCriteria() {
-        ApiDataPermissionExample example = new ApiDataPermissionExample();
+        FunctionPermissionExample example = new FunctionPermissionExample();
         return example.createCriteria();
     }
 
-    public ApiDataPermissionExample when(boolean condition, IExampleWhen then) {
+    public FunctionPermissionExample when(boolean condition, IExampleWhen then) {
         if (condition) {
             then.example(this);
         }
         return this;
     }
 
-    public ApiDataPermissionExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
+    public FunctionPermissionExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
         if (condition) {
             then.example(this);
         } else {
@@ -200,76 +200,6 @@ public class ApiDataPermissionExample {
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeIsNull() {
-            addCriterion("data_code is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeIsNotNull() {
-            addCriterion("data_code is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeEqualTo(String value) {
-            addCriterion("data_code =", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeNotEqualTo(String value) {
-            addCriterion("data_code <>", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeGreaterThan(String value) {
-            addCriterion("data_code >", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("data_code >=", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeLessThan(String value) {
-            addCriterion("data_code <", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeLessThanOrEqualTo(String value) {
-            addCriterion("data_code <=", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeLike(String value) {
-            addCriterion("data_code like", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeNotLike(String value) {
-            addCriterion("data_code not like", value, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeIn(List<String> values) {
-            addCriterion("data_code in", values, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeNotIn(List<String> values) {
-            addCriterion("data_code not in", values, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeBetween(String value1, String value2) {
-            addCriterion("data_code between", value1, value2, "dataCode");
-            return (Criteria) this;
-        }
-
-        public Criteria andDataCodeNotBetween(String value1, String value2) {
-            addCriterion("data_code not between", value1, value2, "dataCode");
             return (Criteria) this;
         }
 
@@ -413,73 +343,73 @@ public class ApiDataPermissionExample {
             return (Criteria) this;
         }
 
-        public Criteria andDataValueIsNull() {
-            addCriterion("data_value is null");
+        public Criteria andFunctionCodeIsNull() {
+            addCriterion("function_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueIsNotNull() {
-            addCriterion("data_value is not null");
+        public Criteria andFunctionCodeIsNotNull() {
+            addCriterion("function_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueEqualTo(String value) {
-            addCriterion("data_value =", value, "dataValue");
+        public Criteria andFunctionCodeEqualTo(String value) {
+            addCriterion("function_code =", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueNotEqualTo(String value) {
-            addCriterion("data_value <>", value, "dataValue");
+        public Criteria andFunctionCodeNotEqualTo(String value) {
+            addCriterion("function_code <>", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueGreaterThan(String value) {
-            addCriterion("data_value >", value, "dataValue");
+        public Criteria andFunctionCodeGreaterThan(String value) {
+            addCriterion("function_code >", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueGreaterThanOrEqualTo(String value) {
-            addCriterion("data_value >=", value, "dataValue");
+        public Criteria andFunctionCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("function_code >=", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueLessThan(String value) {
-            addCriterion("data_value <", value, "dataValue");
+        public Criteria andFunctionCodeLessThan(String value) {
+            addCriterion("function_code <", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueLessThanOrEqualTo(String value) {
-            addCriterion("data_value <=", value, "dataValue");
+        public Criteria andFunctionCodeLessThanOrEqualTo(String value) {
+            addCriterion("function_code <=", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueLike(String value) {
-            addCriterion("data_value like", value, "dataValue");
+        public Criteria andFunctionCodeLike(String value) {
+            addCriterion("function_code like", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueNotLike(String value) {
-            addCriterion("data_value not like", value, "dataValue");
+        public Criteria andFunctionCodeNotLike(String value) {
+            addCriterion("function_code not like", value, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueIn(List<String> values) {
-            addCriterion("data_value in", values, "dataValue");
+        public Criteria andFunctionCodeIn(List<String> values) {
+            addCriterion("function_code in", values, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueNotIn(List<String> values) {
-            addCriterion("data_value not in", values, "dataValue");
+        public Criteria andFunctionCodeNotIn(List<String> values) {
+            addCriterion("function_code not in", values, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueBetween(String value1, String value2) {
-            addCriterion("data_value between", value1, value2, "dataValue");
+        public Criteria andFunctionCodeBetween(String value1, String value2) {
+            addCriterion("function_code between", value1, value2, "functionCode");
             return (Criteria) this;
         }
 
-        public Criteria andDataValueNotBetween(String value1, String value2) {
-            addCriterion("data_value not between", value1, value2, "dataValue");
+        public Criteria andFunctionCodeNotBetween(String value1, String value2) {
+            addCriterion("function_code not between", value1, value2, "functionCode");
             return (Criteria) this;
         }
 
@@ -665,14 +595,14 @@ public class ApiDataPermissionExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private ApiDataPermissionExample example;
+        private FunctionPermissionExample example;
 
-        protected Criteria(ApiDataPermissionExample example) {
+        protected Criteria(FunctionPermissionExample example) {
             super();
             this.example = example;
         }
 
-        public ApiDataPermissionExample example() {
+        public FunctionPermissionExample example() {
             return this.example;
         }
 
@@ -797,6 +727,6 @@ public class ApiDataPermissionExample {
     }
 
     public interface IExampleWhen {
-        void example(com.weweibuy.upms.permission.model.example.ApiDataPermissionExample example);
+        void example(com.weweibuy.upms.permission.model.example.FunctionPermissionExample example);
     }
 }

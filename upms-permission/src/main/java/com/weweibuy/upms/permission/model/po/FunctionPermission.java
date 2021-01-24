@@ -4,16 +4,11 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class ApiDataPermission {
+public class FunctionPermission {
     /**
      * id
      */
     private Long id;
-
-    /**
-     * 数据名
-     */
-    private String dataCode;
 
     /**
      * 用户标识
@@ -26,9 +21,9 @@ public class ApiDataPermission {
     private String symbolType;
 
     /**
-     * 数据值(_UNLIMIT:表示不限制)
+     * 功能代码
      */
-    private String dataValue;
+    private String functionCode;
 
     /**
      * 是否删除

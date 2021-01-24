@@ -1,17 +1,17 @@
-package com.weweibuy.upms.user.model.example;
+package com.weweibuy.upms.permission.model.example;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserGroupExample {
+public class ApiExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public UserGroupExample() {
+    public ApiExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -45,12 +45,12 @@ public class UserGroupExample {
         return criteria;
     }
 
-    public UserGroupExample orderBy(String orderByClause) {
+    public ApiExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public UserGroupExample orderBy(String ... orderByClauses) {
+    public ApiExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -82,18 +82,18 @@ public class UserGroupExample {
     }
 
     public static Criteria newAndCreateCriteria() {
-        UserGroupExample example = new UserGroupExample();
+        ApiExample example = new ApiExample();
         return example.createCriteria();
     }
 
-    public UserGroupExample when(boolean condition, IExampleWhen then) {
+    public ApiExample when(boolean condition, IExampleWhen then) {
         if (condition) {
             then.example(this);
         }
         return this;
     }
 
-    public UserGroupExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
+    public ApiExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
         if (condition) {
             then.example(this);
         } else {
@@ -203,143 +203,353 @@ public class UserGroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNull() {
-            addCriterion("user_name is null");
+        public Criteria andApiCodeIsNull() {
+            addCriterion("api_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNotNull() {
-            addCriterion("user_name is not null");
+        public Criteria andApiCodeIsNotNull() {
+            addCriterion("api_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameEqualTo(String value) {
-            addCriterion("user_name =", value, "userName");
+        public Criteria andApiCodeEqualTo(String value) {
+            addCriterion("api_code =", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotEqualTo(String value) {
-            addCriterion("user_name <>", value, "userName");
+        public Criteria andApiCodeNotEqualTo(String value) {
+            addCriterion("api_code <>", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThan(String value) {
-            addCriterion("user_name >", value, "userName");
+        public Criteria andApiCodeGreaterThan(String value) {
+            addCriterion("api_code >", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
-            addCriterion("user_name >=", value, "userName");
+        public Criteria andApiCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("api_code >=", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThan(String value) {
-            addCriterion("user_name <", value, "userName");
+        public Criteria andApiCodeLessThan(String value) {
+            addCriterion("api_code <", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThanOrEqualTo(String value) {
-            addCriterion("user_name <=", value, "userName");
+        public Criteria andApiCodeLessThanOrEqualTo(String value) {
+            addCriterion("api_code <=", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLike(String value) {
-            addCriterion("user_name like", value, "userName");
+        public Criteria andApiCodeLike(String value) {
+            addCriterion("api_code like", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotLike(String value) {
-            addCriterion("user_name not like", value, "userName");
+        public Criteria andApiCodeNotLike(String value) {
+            addCriterion("api_code not like", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIn(List<String> values) {
-            addCriterion("user_name in", values, "userName");
+        public Criteria andApiCodeIn(List<String> values) {
+            addCriterion("api_code in", values, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotIn(List<String> values) {
-            addCriterion("user_name not in", values, "userName");
+        public Criteria andApiCodeNotIn(List<String> values) {
+            addCriterion("api_code not in", values, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameBetween(String value1, String value2) {
-            addCriterion("user_name between", value1, value2, "userName");
+        public Criteria andApiCodeBetween(String value1, String value2) {
+            addCriterion("api_code between", value1, value2, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotBetween(String value1, String value2) {
-            addCriterion("user_name not between", value1, value2, "userName");
+        public Criteria andApiCodeNotBetween(String value1, String value2) {
+            addCriterion("api_code not between", value1, value2, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNull() {
-            addCriterion("group_code is null");
+        public Criteria andApiDescIsNull() {
+            addCriterion("api_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNotNull() {
-            addCriterion("group_code is not null");
+        public Criteria andApiDescIsNotNull() {
+            addCriterion("api_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeEqualTo(String value) {
-            addCriterion("group_code =", value, "groupCode");
+        public Criteria andApiDescEqualTo(String value) {
+            addCriterion("api_desc =", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotEqualTo(String value) {
-            addCriterion("group_code <>", value, "groupCode");
+        public Criteria andApiDescNotEqualTo(String value) {
+            addCriterion("api_desc <>", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThan(String value) {
-            addCriterion("group_code >", value, "groupCode");
+        public Criteria andApiDescGreaterThan(String value) {
+            addCriterion("api_desc >", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("group_code >=", value, "groupCode");
+        public Criteria andApiDescGreaterThanOrEqualTo(String value) {
+            addCriterion("api_desc >=", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThan(String value) {
-            addCriterion("group_code <", value, "groupCode");
+        public Criteria andApiDescLessThan(String value) {
+            addCriterion("api_desc <", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThanOrEqualTo(String value) {
-            addCriterion("group_code <=", value, "groupCode");
+        public Criteria andApiDescLessThanOrEqualTo(String value) {
+            addCriterion("api_desc <=", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLike(String value) {
-            addCriterion("group_code like", value, "groupCode");
+        public Criteria andApiDescLike(String value) {
+            addCriterion("api_desc like", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotLike(String value) {
-            addCriterion("group_code not like", value, "groupCode");
+        public Criteria andApiDescNotLike(String value) {
+            addCriterion("api_desc not like", value, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIn(List<String> values) {
-            addCriterion("group_code in", values, "groupCode");
+        public Criteria andApiDescIn(List<String> values) {
+            addCriterion("api_desc in", values, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotIn(List<String> values) {
-            addCriterion("group_code not in", values, "groupCode");
+        public Criteria andApiDescNotIn(List<String> values) {
+            addCriterion("api_desc not in", values, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeBetween(String value1, String value2) {
-            addCriterion("group_code between", value1, value2, "groupCode");
+        public Criteria andApiDescBetween(String value1, String value2) {
+            addCriterion("api_desc between", value1, value2, "apiDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotBetween(String value1, String value2) {
-            addCriterion("group_code not between", value1, value2, "groupCode");
+        public Criteria andApiDescNotBetween(String value1, String value2) {
+            addCriterion("api_desc not between", value1, value2, "apiDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceIsNull() {
+            addCriterion("api_service is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceIsNotNull() {
+            addCriterion("api_service is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceEqualTo(String value) {
+            addCriterion("api_service =", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceNotEqualTo(String value) {
+            addCriterion("api_service <>", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceGreaterThan(String value) {
+            addCriterion("api_service >", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceGreaterThanOrEqualTo(String value) {
+            addCriterion("api_service >=", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceLessThan(String value) {
+            addCriterion("api_service <", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceLessThanOrEqualTo(String value) {
+            addCriterion("api_service <=", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceLike(String value) {
+            addCriterion("api_service like", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceNotLike(String value) {
+            addCriterion("api_service not like", value, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceIn(List<String> values) {
+            addCriterion("api_service in", values, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceNotIn(List<String> values) {
+            addCriterion("api_service not in", values, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceBetween(String value1, String value2) {
+            addCriterion("api_service between", value1, value2, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiServiceNotBetween(String value1, String value2) {
+            addCriterion("api_service not between", value1, value2, "apiService");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressIsNull() {
+            addCriterion("api_address is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressIsNotNull() {
+            addCriterion("api_address is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressEqualTo(String value) {
+            addCriterion("api_address =", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressNotEqualTo(String value) {
+            addCriterion("api_address <>", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressGreaterThan(String value) {
+            addCriterion("api_address >", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressGreaterThanOrEqualTo(String value) {
+            addCriterion("api_address >=", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressLessThan(String value) {
+            addCriterion("api_address <", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressLessThanOrEqualTo(String value) {
+            addCriterion("api_address <=", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressLike(String value) {
+            addCriterion("api_address like", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressNotLike(String value) {
+            addCriterion("api_address not like", value, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressIn(List<String> values) {
+            addCriterion("api_address in", values, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressNotIn(List<String> values) {
+            addCriterion("api_address not in", values, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressBetween(String value1, String value2) {
+            addCriterion("api_address between", value1, value2, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiAddressNotBetween(String value1, String value2) {
+            addCriterion("api_address not between", value1, value2, "apiAddress");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodIsNull() {
+            addCriterion("api_method is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodIsNotNull() {
+            addCriterion("api_method is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodEqualTo(String value) {
+            addCriterion("api_method =", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodNotEqualTo(String value) {
+            addCriterion("api_method <>", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodGreaterThan(String value) {
+            addCriterion("api_method >", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodGreaterThanOrEqualTo(String value) {
+            addCriterion("api_method >=", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodLessThan(String value) {
+            addCriterion("api_method <", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodLessThanOrEqualTo(String value) {
+            addCriterion("api_method <=", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodLike(String value) {
+            addCriterion("api_method like", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodNotLike(String value) {
+            addCriterion("api_method not like", value, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodIn(List<String> values) {
+            addCriterion("api_method in", values, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodNotIn(List<String> values) {
+            addCriterion("api_method not in", values, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodBetween(String value1, String value2) {
+            addCriterion("api_method between", value1, value2, "apiMethod");
+            return (Criteria) this;
+        }
+
+        public Criteria andApiMethodNotBetween(String value1, String value2) {
+            addCriterion("api_method not between", value1, value2, "apiMethod");
             return (Criteria) this;
         }
 
@@ -525,14 +735,14 @@ public class UserGroupExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private UserGroupExample example;
+        private ApiExample example;
 
-        protected Criteria(UserGroupExample example) {
+        protected Criteria(ApiExample example) {
             super();
             this.example = example;
         }
 
-        public UserGroupExample example() {
+        public ApiExample example() {
             return this.example;
         }
 
@@ -657,6 +867,6 @@ public class UserGroupExample {
     }
 
     public interface IExampleWhen {
-        void example(com.weweibuy.upms.user.model.example.UserGroupExample example);
+        void example(com.weweibuy.upms.permission.model.example.ApiExample example);
     }
 }

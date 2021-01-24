@@ -24,14 +24,14 @@ public class GroupRepository {
     public Optional<Group> selectGroup(String groupKey) {
         return Optional.ofNullable(groupMapper.selectOneByExample(GroupExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andGroupKeyEqualTo(groupKey)
+                .andGroupCodeEqualTo(groupKey)
                 .example()));
     }
 
     public List<Group> selectGroup(List<String> groupKeyList) {
         return groupMapper.selectByExample(GroupExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andGroupKeyIn(groupKeyList)
+                .andGroupCodeIn(groupKeyList)
                 .example());
     }
 
@@ -48,14 +48,14 @@ public class GroupRepository {
         GroupExample.Criteria criteria = GroupExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false);
         Optional.ofNullable(queryVO.getGroupKey())
-                .ifPresent(criteria::andGroupKeyEqualTo);
+                .ifPresent(criteria::andGroupCodeEqualTo);
         Optional.ofNullable(queryVO.getNameLike())
-                .ifPresent(like -> criteria.andNameLike("%" + like + "%"));
+                .ifPresent(like -> criteria.andGroupNameLike("%" + like + "%"));
         Optional.ofNullable(queryVO.getName())
-                .ifPresent(criteria::andNameEqualTo);
+                .ifPresent(criteria::andGroupNameEqualTo);
         Optional.ofNullable(queryVO.getGroupKeyList())
                 .filter(CollectionUtils::isNotEmpty)
-                .ifPresent(criteria::andGroupKeyIn);
+                .ifPresent(criteria::andGroupCodeIn);
         return criteria.example();
     }
 

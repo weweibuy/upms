@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.weweibuy.upms.user.mapper.GroupMapper">
-  <resultMap id="BaseResultMap" type="com.weweibuy.upms.user.model.po.Group">
+<mapper namespace="com.weweibuy.upms.permission.mapper.MenuMapper">
+  <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.Menu">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
-    <result column="group_code" jdbcType="VARCHAR" property="groupCode" />
-    <result column="group_desc" jdbcType="VARCHAR" property="groupDesc" />
-    <result column="group_type" jdbcType="VARCHAR" property="groupType" />
+    <result column="menu_code" jdbcType="VARCHAR" property="menuCode" />
+    <result column="menu_desc" jdbcType="VARCHAR" property="menuDesc" />
+    <result column="menu_type" jdbcType="VARCHAR" property="menuType" />
+    <result column="parent_menu_code" jdbcType="VARCHAR" property="parentMenuCode" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -70,15 +70,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, group_name, group_code, group_desc, group_type, is_delete, create_time, update_time
+    id, menu_code, menu_desc, menu_type, parent_menu_code, is_delete, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.weweibuy.upms.permission.model.example.MenuExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,13 +86,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.MenuExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -104,44 +104,44 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_menu
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from upms_group
+    delete from upms_menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample">
-    delete from upms_group
+  <delete id="deleteByExample" parameterType="com.weweibuy.upms.permission.model.example.MenuExample">
+    delete from upms_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.weweibuy.upms.user.model.po.Group">
-    insert into upms_group (id, group_name, group_code, 
-      group_desc, group_type, is_delete, 
+  <insert id="insert" parameterType="com.weweibuy.upms.permission.model.po.Menu">
+    insert into upms_menu (id, menu_code, menu_desc, 
+      menu_type, parent_menu_code, is_delete, 
       create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{groupName,jdbcType=VARCHAR}, #{groupCode,jdbcType=VARCHAR}, 
-      #{groupDesc,jdbcType=VARCHAR}, #{groupType,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, 
+    values (#{id,jdbcType=BIGINT}, #{menuCode,jdbcType=VARCHAR}, #{menuDesc,jdbcType=VARCHAR}, 
+      #{menuType,jdbcType=VARCHAR}, #{parentMenuCode,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.weweibuy.upms.user.model.po.Group">
-    insert into upms_group
+  <insert id="insertSelective" parameterType="com.weweibuy.upms.permission.model.po.Menu">
+    insert into upms_menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="groupName != null">
-        group_name,
+      <if test="menuCode != null">
+        menu_code,
       </if>
-      <if test="groupCode != null">
-        group_code,
+      <if test="menuDesc != null">
+        menu_desc,
       </if>
-      <if test="groupDesc != null">
-        group_desc,
+      <if test="menuType != null">
+        menu_type,
       </if>
-      <if test="groupType != null">
-        group_type,
+      <if test="parentMenuCode != null">
+        parent_menu_code,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -157,17 +157,17 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="groupName != null">
-        #{groupName,jdbcType=VARCHAR},
+      <if test="menuCode != null">
+        #{menuCode,jdbcType=VARCHAR},
       </if>
-      <if test="groupCode != null">
-        #{groupCode,jdbcType=VARCHAR},
+      <if test="menuDesc != null">
+        #{menuDesc,jdbcType=VARCHAR},
       </if>
-      <if test="groupDesc != null">
-        #{groupDesc,jdbcType=VARCHAR},
+      <if test="menuType != null">
+        #{menuType,jdbcType=VARCHAR},
       </if>
-      <if test="groupType != null">
-        #{groupType,jdbcType=VARCHAR},
+      <if test="parentMenuCode != null">
+        #{parentMenuCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -180,29 +180,29 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultType="java.lang.Long">
-    select count(*) from upms_group
+  <select id="countByExample" parameterType="com.weweibuy.upms.permission.model.example.MenuExample" resultType="java.lang.Long">
+    select count(*) from upms_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update upms_group
+    update upms_menu
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.groupName != null">
-        group_name = #{record.groupName,jdbcType=VARCHAR},
+      <if test="record.menuCode != null">
+        menu_code = #{record.menuCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupCode != null">
-        group_code = #{record.groupCode,jdbcType=VARCHAR},
+      <if test="record.menuDesc != null">
+        menu_desc = #{record.menuDesc,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupDesc != null">
-        group_desc = #{record.groupDesc,jdbcType=VARCHAR},
+      <if test="record.menuType != null">
+        menu_type = #{record.menuType,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupType != null">
-        group_type = #{record.groupType,jdbcType=VARCHAR},
+      <if test="record.parentMenuCode != null">
+        parent_menu_code = #{record.parentMenuCode,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -219,12 +219,12 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update upms_group
+    update upms_menu
     set id = #{record.id,jdbcType=BIGINT},
-      group_name = #{record.groupName,jdbcType=VARCHAR},
-      group_code = #{record.groupCode,jdbcType=VARCHAR},
-      group_desc = #{record.groupDesc,jdbcType=VARCHAR},
-      group_type = #{record.groupType,jdbcType=VARCHAR},
+      menu_code = #{record.menuCode,jdbcType=VARCHAR},
+      menu_desc = #{record.menuDesc,jdbcType=VARCHAR},
+      menu_type = #{record.menuType,jdbcType=VARCHAR},
+      parent_menu_code = #{record.parentMenuCode,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -232,20 +232,20 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.user.model.po.Group">
-    update upms_group
+  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.permission.model.po.Menu">
+    update upms_menu
     <set>
-      <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+      <if test="menuCode != null">
+        menu_code = #{menuCode,jdbcType=VARCHAR},
       </if>
-      <if test="groupCode != null">
-        group_code = #{groupCode,jdbcType=VARCHAR},
+      <if test="menuDesc != null">
+        menu_desc = #{menuDesc,jdbcType=VARCHAR},
       </if>
-      <if test="groupDesc != null">
-        group_desc = #{groupDesc,jdbcType=VARCHAR},
+      <if test="menuType != null">
+        menu_type = #{menuType,jdbcType=VARCHAR},
       </if>
-      <if test="groupType != null">
-        group_type = #{groupType,jdbcType=VARCHAR},
+      <if test="parentMenuCode != null">
+        parent_menu_code = #{parentMenuCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -259,21 +259,21 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.user.model.po.Group">
-    update upms_group
-    set group_name = #{groupName,jdbcType=VARCHAR},
-      group_code = #{groupCode,jdbcType=VARCHAR},
-      group_desc = #{groupDesc,jdbcType=VARCHAR},
-      group_type = #{groupType,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.Menu">
+    update upms_menu
+    set menu_code = #{menuCode,jdbcType=VARCHAR},
+      menu_desc = #{menuDesc,jdbcType=VARCHAR},
+      menu_type = #{menuType,jdbcType=VARCHAR},
+      parent_menu_code = #{parentMenuCode,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectOneByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectOneByExample" parameterType="com.weweibuy.upms.permission.model.example.MenuExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -282,10 +282,10 @@
     </if>
     limit 1
   </select>
-  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.MenuExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

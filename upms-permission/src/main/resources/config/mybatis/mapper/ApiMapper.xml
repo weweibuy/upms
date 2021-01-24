@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.weweibuy.upms.user.mapper.GroupMapper">
-  <resultMap id="BaseResultMap" type="com.weweibuy.upms.user.model.po.Group">
+<mapper namespace="com.weweibuy.upms.permission.mapper.ApiMapper">
+  <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.Api">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
-    <result column="group_code" jdbcType="VARCHAR" property="groupCode" />
-    <result column="group_desc" jdbcType="VARCHAR" property="groupDesc" />
-    <result column="group_type" jdbcType="VARCHAR" property="groupType" />
+    <result column="api_code" jdbcType="VARCHAR" property="apiCode" />
+    <result column="api_desc" jdbcType="VARCHAR" property="apiDesc" />
+    <result column="api_service" jdbcType="VARCHAR" property="apiService" />
+    <result column="api_address" jdbcType="VARCHAR" property="apiAddress" />
+    <result column="api_method" jdbcType="VARCHAR" property="apiMethod" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -70,15 +71,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, group_name, group_code, group_desc, group_type, is_delete, create_time, update_time
+    id, api_code, api_desc, api_service, api_address, api_method, is_delete, create_time, 
+    update_time
   </sql>
-  <select id="selectByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_api
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,13 +88,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.ApiExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_api
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -104,44 +106,49 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_api
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from upms_group
+    delete from upms_api
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample">
-    delete from upms_group
+  <delete id="deleteByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiExample">
+    delete from upms_api
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.weweibuy.upms.user.model.po.Group">
-    insert into upms_group (id, group_name, group_code, 
-      group_desc, group_type, is_delete, 
-      create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{groupName,jdbcType=VARCHAR}, #{groupCode,jdbcType=VARCHAR}, 
-      #{groupDesc,jdbcType=VARCHAR}, #{groupType,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.weweibuy.upms.permission.model.po.Api">
+    insert into upms_api (id, api_code, api_desc, 
+      api_service, api_address, api_method, 
+      is_delete, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{apiCode,jdbcType=VARCHAR}, #{apiDesc,jdbcType=VARCHAR}, 
+      #{apiService,jdbcType=VARCHAR}, #{apiAddress,jdbcType=VARCHAR}, #{apiMethod,jdbcType=VARCHAR}, 
+      #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.weweibuy.upms.user.model.po.Group">
-    insert into upms_group
+  <insert id="insertSelective" parameterType="com.weweibuy.upms.permission.model.po.Api">
+    insert into upms_api
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="groupName != null">
-        group_name,
+      <if test="apiCode != null">
+        api_code,
       </if>
-      <if test="groupCode != null">
-        group_code,
+      <if test="apiDesc != null">
+        api_desc,
       </if>
-      <if test="groupDesc != null">
-        group_desc,
+      <if test="apiService != null">
+        api_service,
       </if>
-      <if test="groupType != null">
-        group_type,
+      <if test="apiAddress != null">
+        api_address,
+      </if>
+      <if test="apiMethod != null">
+        api_method,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -157,17 +164,20 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="groupName != null">
-        #{groupName,jdbcType=VARCHAR},
+      <if test="apiCode != null">
+        #{apiCode,jdbcType=VARCHAR},
       </if>
-      <if test="groupCode != null">
-        #{groupCode,jdbcType=VARCHAR},
+      <if test="apiDesc != null">
+        #{apiDesc,jdbcType=VARCHAR},
       </if>
-      <if test="groupDesc != null">
-        #{groupDesc,jdbcType=VARCHAR},
+      <if test="apiService != null">
+        #{apiService,jdbcType=VARCHAR},
       </if>
-      <if test="groupType != null">
-        #{groupType,jdbcType=VARCHAR},
+      <if test="apiAddress != null">
+        #{apiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="apiMethod != null">
+        #{apiMethod,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -180,29 +190,32 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultType="java.lang.Long">
-    select count(*) from upms_group
+  <select id="countByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiExample" resultType="java.lang.Long">
+    select count(*) from upms_api
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update upms_group
+    update upms_api
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.groupName != null">
-        group_name = #{record.groupName,jdbcType=VARCHAR},
+      <if test="record.apiCode != null">
+        api_code = #{record.apiCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupCode != null">
-        group_code = #{record.groupCode,jdbcType=VARCHAR},
+      <if test="record.apiDesc != null">
+        api_desc = #{record.apiDesc,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupDesc != null">
-        group_desc = #{record.groupDesc,jdbcType=VARCHAR},
+      <if test="record.apiService != null">
+        api_service = #{record.apiService,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupType != null">
-        group_type = #{record.groupType,jdbcType=VARCHAR},
+      <if test="record.apiAddress != null">
+        api_address = #{record.apiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.apiMethod != null">
+        api_method = #{record.apiMethod,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -219,12 +232,13 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update upms_group
+    update upms_api
     set id = #{record.id,jdbcType=BIGINT},
-      group_name = #{record.groupName,jdbcType=VARCHAR},
-      group_code = #{record.groupCode,jdbcType=VARCHAR},
-      group_desc = #{record.groupDesc,jdbcType=VARCHAR},
-      group_type = #{record.groupType,jdbcType=VARCHAR},
+      api_code = #{record.apiCode,jdbcType=VARCHAR},
+      api_desc = #{record.apiDesc,jdbcType=VARCHAR},
+      api_service = #{record.apiService,jdbcType=VARCHAR},
+      api_address = #{record.apiAddress,jdbcType=VARCHAR},
+      api_method = #{record.apiMethod,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -232,20 +246,23 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.user.model.po.Group">
-    update upms_group
+  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.permission.model.po.Api">
+    update upms_api
     <set>
-      <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+      <if test="apiCode != null">
+        api_code = #{apiCode,jdbcType=VARCHAR},
       </if>
-      <if test="groupCode != null">
-        group_code = #{groupCode,jdbcType=VARCHAR},
+      <if test="apiDesc != null">
+        api_desc = #{apiDesc,jdbcType=VARCHAR},
       </if>
-      <if test="groupDesc != null">
-        group_desc = #{groupDesc,jdbcType=VARCHAR},
+      <if test="apiService != null">
+        api_service = #{apiService,jdbcType=VARCHAR},
       </if>
-      <if test="groupType != null">
-        group_type = #{groupType,jdbcType=VARCHAR},
+      <if test="apiAddress != null">
+        api_address = #{apiAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="apiMethod != null">
+        api_method = #{apiMethod,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -259,21 +276,22 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.user.model.po.Group">
-    update upms_group
-    set group_name = #{groupName,jdbcType=VARCHAR},
-      group_code = #{groupCode,jdbcType=VARCHAR},
-      group_desc = #{groupDesc,jdbcType=VARCHAR},
-      group_type = #{groupType,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.Api">
+    update upms_api
+    set api_code = #{apiCode,jdbcType=VARCHAR},
+      api_desc = #{apiDesc,jdbcType=VARCHAR},
+      api_service = #{apiService,jdbcType=VARCHAR},
+      api_address = #{apiAddress,jdbcType=VARCHAR},
+      api_method = #{apiMethod,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectOneByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectOneByExample" parameterType="com.weweibuy.upms.permission.model.example.ApiExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_api
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -282,10 +300,10 @@
     </if>
     limit 1
   </select>
-  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.ApiExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_api
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

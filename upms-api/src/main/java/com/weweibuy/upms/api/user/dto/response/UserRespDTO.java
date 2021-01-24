@@ -19,12 +19,17 @@ public class UserRespDTO {
     /**
      * 姓名
      */
-    private String name;
+    private String fullName;
 
     /**
      * 用户名
      */
     private String username;
+
+    /**
+     * 密码
+     */
+    private String password;
 
     /**
      * 手机号
@@ -35,6 +40,11 @@ public class UserRespDTO {
      * 邮箱
      */
     private String email;
+
+    /**
+     * 用户类型
+     */
+    private String userType;
 
     /**
      * 创建时间

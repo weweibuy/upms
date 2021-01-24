@@ -1,7 +1,8 @@
 package com.weweibuy.upms.user.model.po;
 
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 public class User {
@@ -13,7 +14,7 @@ public class User {
     /**
      * 姓名
      */
-    private String name;
+    private String fullName;
 
     /**
      * 用户名
@@ -34,6 +35,11 @@ public class User {
      * 邮箱
      */
     private String email;
+
+    /**
+     * 用户类型
+     */
+    private String userType;
 
     /**
      * 是否删除

@@ -1,35 +1,24 @@
-package com.weweibuy.upms.user.model.po;
-
-import lombok.Data;
+package com.weweibuy.upms.permission.model.po;
 
 import java.time.LocalDateTime;
+import lombok.Data;
 
 @Data
-public class Group {
+public class FunctionMenuRelation {
     /**
      * id
      */
     private Long id;
 
     /**
-     * 名称
+     * 功能名
      */
-    private String groupName;
+    private String functionCode;
 
     /**
-     * 组代码
+     * 菜单代码
      */
-    private String groupCode;
-
-    /**
-     * 组描述
-     */
-    private String groupDesc;
-
-    /**
-     * 组类型
-     */
-    private String groupType;
+    private String menuCode;
 
     /**
      * 是否删除

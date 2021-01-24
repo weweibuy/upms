@@ -1,17 +1,17 @@
-package com.weweibuy.upms.user.model.example;
+package com.weweibuy.upms.permission.model.example;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupExample {
+public class ApiDataPermissionFieldExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public GroupExample() {
+    public ApiDataPermissionFieldExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -45,12 +45,12 @@ public class GroupExample {
         return criteria;
     }
 
-    public GroupExample orderBy(String orderByClause) {
+    public ApiDataPermissionFieldExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public GroupExample orderBy(String ... orderByClauses) {
+    public ApiDataPermissionFieldExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -82,18 +82,18 @@ public class GroupExample {
     }
 
     public static Criteria newAndCreateCriteria() {
-        GroupExample example = new GroupExample();
+        ApiDataPermissionFieldExample example = new ApiDataPermissionFieldExample();
         return example.createCriteria();
     }
 
-    public GroupExample when(boolean condition, IExampleWhen then) {
+    public ApiDataPermissionFieldExample when(boolean condition, IExampleWhen then) {
         if (condition) {
             then.example(this);
         }
         return this;
     }
 
-    public GroupExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
+    public ApiDataPermissionFieldExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
         if (condition) {
             then.example(this);
         } else {
@@ -203,283 +203,493 @@ public class GroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameIsNull() {
-            addCriterion("group_name is null");
+        public Criteria andDataCodeIsNull() {
+            addCriterion("data_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameIsNotNull() {
-            addCriterion("group_name is not null");
+        public Criteria andDataCodeIsNotNull() {
+            addCriterion("data_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameEqualTo(String value) {
-            addCriterion("group_name =", value, "groupName");
+        public Criteria andDataCodeEqualTo(String value) {
+            addCriterion("data_code =", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameNotEqualTo(String value) {
-            addCriterion("group_name <>", value, "groupName");
+        public Criteria andDataCodeNotEqualTo(String value) {
+            addCriterion("data_code <>", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameGreaterThan(String value) {
-            addCriterion("group_name >", value, "groupName");
+        public Criteria andDataCodeGreaterThan(String value) {
+            addCriterion("data_code >", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameGreaterThanOrEqualTo(String value) {
-            addCriterion("group_name >=", value, "groupName");
+        public Criteria andDataCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("data_code >=", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameLessThan(String value) {
-            addCriterion("group_name <", value, "groupName");
+        public Criteria andDataCodeLessThan(String value) {
+            addCriterion("data_code <", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameLessThanOrEqualTo(String value) {
-            addCriterion("group_name <=", value, "groupName");
+        public Criteria andDataCodeLessThanOrEqualTo(String value) {
+            addCriterion("data_code <=", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameLike(String value) {
-            addCriterion("group_name like", value, "groupName");
+        public Criteria andDataCodeLike(String value) {
+            addCriterion("data_code like", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameNotLike(String value) {
-            addCriterion("group_name not like", value, "groupName");
+        public Criteria andDataCodeNotLike(String value) {
+            addCriterion("data_code not like", value, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameIn(List<String> values) {
-            addCriterion("group_name in", values, "groupName");
+        public Criteria andDataCodeIn(List<String> values) {
+            addCriterion("data_code in", values, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameNotIn(List<String> values) {
-            addCriterion("group_name not in", values, "groupName");
+        public Criteria andDataCodeNotIn(List<String> values) {
+            addCriterion("data_code not in", values, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameBetween(String value1, String value2) {
-            addCriterion("group_name between", value1, value2, "groupName");
+        public Criteria andDataCodeBetween(String value1, String value2) {
+            addCriterion("data_code between", value1, value2, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupNameNotBetween(String value1, String value2) {
-            addCriterion("group_name not between", value1, value2, "groupName");
+        public Criteria andDataCodeNotBetween(String value1, String value2) {
+            addCriterion("data_code not between", value1, value2, "dataCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNull() {
-            addCriterion("group_code is null");
+        public Criteria andDataDescIsNull() {
+            addCriterion("data_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNotNull() {
-            addCriterion("group_code is not null");
+        public Criteria andDataDescIsNotNull() {
+            addCriterion("data_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeEqualTo(String value) {
-            addCriterion("group_code =", value, "groupCode");
+        public Criteria andDataDescEqualTo(String value) {
+            addCriterion("data_desc =", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotEqualTo(String value) {
-            addCriterion("group_code <>", value, "groupCode");
+        public Criteria andDataDescNotEqualTo(String value) {
+            addCriterion("data_desc <>", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThan(String value) {
-            addCriterion("group_code >", value, "groupCode");
+        public Criteria andDataDescGreaterThan(String value) {
+            addCriterion("data_desc >", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("group_code >=", value, "groupCode");
+        public Criteria andDataDescGreaterThanOrEqualTo(String value) {
+            addCriterion("data_desc >=", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThan(String value) {
-            addCriterion("group_code <", value, "groupCode");
+        public Criteria andDataDescLessThan(String value) {
+            addCriterion("data_desc <", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThanOrEqualTo(String value) {
-            addCriterion("group_code <=", value, "groupCode");
+        public Criteria andDataDescLessThanOrEqualTo(String value) {
+            addCriterion("data_desc <=", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLike(String value) {
-            addCriterion("group_code like", value, "groupCode");
+        public Criteria andDataDescLike(String value) {
+            addCriterion("data_desc like", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotLike(String value) {
-            addCriterion("group_code not like", value, "groupCode");
+        public Criteria andDataDescNotLike(String value) {
+            addCriterion("data_desc not like", value, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIn(List<String> values) {
-            addCriterion("group_code in", values, "groupCode");
+        public Criteria andDataDescIn(List<String> values) {
+            addCriterion("data_desc in", values, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotIn(List<String> values) {
-            addCriterion("group_code not in", values, "groupCode");
+        public Criteria andDataDescNotIn(List<String> values) {
+            addCriterion("data_desc not in", values, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeBetween(String value1, String value2) {
-            addCriterion("group_code between", value1, value2, "groupCode");
+        public Criteria andDataDescBetween(String value1, String value2) {
+            addCriterion("data_desc between", value1, value2, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotBetween(String value1, String value2) {
-            addCriterion("group_code not between", value1, value2, "groupCode");
+        public Criteria andDataDescNotBetween(String value1, String value2) {
+            addCriterion("data_desc not between", value1, value2, "dataDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescIsNull() {
-            addCriterion("group_desc is null");
+        public Criteria andApiCodeIsNull() {
+            addCriterion("api_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescIsNotNull() {
-            addCriterion("group_desc is not null");
+        public Criteria andApiCodeIsNotNull() {
+            addCriterion("api_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescEqualTo(String value) {
-            addCriterion("group_desc =", value, "groupDesc");
+        public Criteria andApiCodeEqualTo(String value) {
+            addCriterion("api_code =", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescNotEqualTo(String value) {
-            addCriterion("group_desc <>", value, "groupDesc");
+        public Criteria andApiCodeNotEqualTo(String value) {
+            addCriterion("api_code <>", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescGreaterThan(String value) {
-            addCriterion("group_desc >", value, "groupDesc");
+        public Criteria andApiCodeGreaterThan(String value) {
+            addCriterion("api_code >", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescGreaterThanOrEqualTo(String value) {
-            addCriterion("group_desc >=", value, "groupDesc");
+        public Criteria andApiCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("api_code >=", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescLessThan(String value) {
-            addCriterion("group_desc <", value, "groupDesc");
+        public Criteria andApiCodeLessThan(String value) {
+            addCriterion("api_code <", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescLessThanOrEqualTo(String value) {
-            addCriterion("group_desc <=", value, "groupDesc");
+        public Criteria andApiCodeLessThanOrEqualTo(String value) {
+            addCriterion("api_code <=", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescLike(String value) {
-            addCriterion("group_desc like", value, "groupDesc");
+        public Criteria andApiCodeLike(String value) {
+            addCriterion("api_code like", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescNotLike(String value) {
-            addCriterion("group_desc not like", value, "groupDesc");
+        public Criteria andApiCodeNotLike(String value) {
+            addCriterion("api_code not like", value, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescIn(List<String> values) {
-            addCriterion("group_desc in", values, "groupDesc");
+        public Criteria andApiCodeIn(List<String> values) {
+            addCriterion("api_code in", values, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescNotIn(List<String> values) {
-            addCriterion("group_desc not in", values, "groupDesc");
+        public Criteria andApiCodeNotIn(List<String> values) {
+            addCriterion("api_code not in", values, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescBetween(String value1, String value2) {
-            addCriterion("group_desc between", value1, value2, "groupDesc");
+        public Criteria andApiCodeBetween(String value1, String value2) {
+            addCriterion("api_code between", value1, value2, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupDescNotBetween(String value1, String value2) {
-            addCriterion("group_desc not between", value1, value2, "groupDesc");
+        public Criteria andApiCodeNotBetween(String value1, String value2) {
+            addCriterion("api_code not between", value1, value2, "apiCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeIsNull() {
-            addCriterion("group_type is null");
+        public Criteria andFieldNameIsNull() {
+            addCriterion("field_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeIsNotNull() {
-            addCriterion("group_type is not null");
+        public Criteria andFieldNameIsNotNull() {
+            addCriterion("field_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeEqualTo(String value) {
-            addCriterion("group_type =", value, "groupType");
+        public Criteria andFieldNameEqualTo(String value) {
+            addCriterion("field_name =", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeNotEqualTo(String value) {
-            addCriterion("group_type <>", value, "groupType");
+        public Criteria andFieldNameNotEqualTo(String value) {
+            addCriterion("field_name <>", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeGreaterThan(String value) {
-            addCriterion("group_type >", value, "groupType");
+        public Criteria andFieldNameGreaterThan(String value) {
+            addCriterion("field_name >", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("group_type >=", value, "groupType");
+        public Criteria andFieldNameGreaterThanOrEqualTo(String value) {
+            addCriterion("field_name >=", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeLessThan(String value) {
-            addCriterion("group_type <", value, "groupType");
+        public Criteria andFieldNameLessThan(String value) {
+            addCriterion("field_name <", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeLessThanOrEqualTo(String value) {
-            addCriterion("group_type <=", value, "groupType");
+        public Criteria andFieldNameLessThanOrEqualTo(String value) {
+            addCriterion("field_name <=", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeLike(String value) {
-            addCriterion("group_type like", value, "groupType");
+        public Criteria andFieldNameLike(String value) {
+            addCriterion("field_name like", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeNotLike(String value) {
-            addCriterion("group_type not like", value, "groupType");
+        public Criteria andFieldNameNotLike(String value) {
+            addCriterion("field_name not like", value, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeIn(List<String> values) {
-            addCriterion("group_type in", values, "groupType");
+        public Criteria andFieldNameIn(List<String> values) {
+            addCriterion("field_name in", values, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeNotIn(List<String> values) {
-            addCriterion("group_type not in", values, "groupType");
+        public Criteria andFieldNameNotIn(List<String> values) {
+            addCriterion("field_name not in", values, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeBetween(String value1, String value2) {
-            addCriterion("group_type between", value1, value2, "groupType");
+        public Criteria andFieldNameBetween(String value1, String value2) {
+            addCriterion("field_name between", value1, value2, "fieldName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupTypeNotBetween(String value1, String value2) {
-            addCriterion("group_type not between", value1, value2, "groupType");
+        public Criteria andFieldNameNotBetween(String value1, String value2) {
+            addCriterion("field_name not between", value1, value2, "fieldName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeIsNull() {
+            addCriterion("field_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeIsNotNull() {
+            addCriterion("field_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeEqualTo(String value) {
+            addCriterion("field_type =", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeNotEqualTo(String value) {
+            addCriterion("field_type <>", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeGreaterThan(String value) {
+            addCriterion("field_type >", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("field_type >=", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeLessThan(String value) {
+            addCriterion("field_type <", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeLessThanOrEqualTo(String value) {
+            addCriterion("field_type <=", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeLike(String value) {
+            addCriterion("field_type like", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeNotLike(String value) {
+            addCriterion("field_type not like", value, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeIn(List<String> values) {
+            addCriterion("field_type in", values, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeNotIn(List<String> values) {
+            addCriterion("field_type not in", values, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeBetween(String value1, String value2) {
+            addCriterion("field_type between", value1, value2, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldTypeNotBetween(String value1, String value2) {
+            addCriterion("field_type not between", value1, value2, "fieldType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeIsNull() {
+            addCriterion("input_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeIsNotNull() {
+            addCriterion("input_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeEqualTo(String value) {
+            addCriterion("input_type =", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeNotEqualTo(String value) {
+            addCriterion("input_type <>", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeGreaterThan(String value) {
+            addCriterion("input_type >", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("input_type >=", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeLessThan(String value) {
+            addCriterion("input_type <", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeLessThanOrEqualTo(String value) {
+            addCriterion("input_type <=", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeLike(String value) {
+            addCriterion("input_type like", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeNotLike(String value) {
+            addCriterion("input_type not like", value, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeIn(List<String> values) {
+            addCriterion("input_type in", values, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeNotIn(List<String> values) {
+            addCriterion("input_type not in", values, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeBetween(String value1, String value2) {
+            addCriterion("input_type between", value1, value2, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andInputTypeNotBetween(String value1, String value2) {
+            addCriterion("input_type not between", value1, value2, "inputType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeIsNull() {
+            addCriterion("field_dict_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeIsNotNull() {
+            addCriterion("field_dict_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeEqualTo(String value) {
+            addCriterion("field_dict_type =", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeNotEqualTo(String value) {
+            addCriterion("field_dict_type <>", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeGreaterThan(String value) {
+            addCriterion("field_dict_type >", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("field_dict_type >=", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeLessThan(String value) {
+            addCriterion("field_dict_type <", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeLessThanOrEqualTo(String value) {
+            addCriterion("field_dict_type <=", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeLike(String value) {
+            addCriterion("field_dict_type like", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeNotLike(String value) {
+            addCriterion("field_dict_type not like", value, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeIn(List<String> values) {
+            addCriterion("field_dict_type in", values, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeNotIn(List<String> values) {
+            addCriterion("field_dict_type not in", values, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeBetween(String value1, String value2) {
+            addCriterion("field_dict_type between", value1, value2, "fieldDictType");
+            return (Criteria) this;
+        }
+
+        public Criteria andFieldDictTypeNotBetween(String value1, String value2) {
+            addCriterion("field_dict_type not between", value1, value2, "fieldDictType");
             return (Criteria) this;
         }
 
@@ -665,14 +875,14 @@ public class GroupExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private GroupExample example;
+        private ApiDataPermissionFieldExample example;
 
-        protected Criteria(GroupExample example) {
+        protected Criteria(ApiDataPermissionFieldExample example) {
             super();
             this.example = example;
         }
 
-        public GroupExample example() {
+        public ApiDataPermissionFieldExample example() {
             return this.example;
         }
 
@@ -797,6 +1007,6 @@ public class GroupExample {
     }
 
     public interface IExampleWhen {
-        void example(com.weweibuy.upms.user.model.example.GroupExample example);
+        void example(com.weweibuy.upms.permission.model.example.ApiDataPermissionFieldExample example);
     }
 }

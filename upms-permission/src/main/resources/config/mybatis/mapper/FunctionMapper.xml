@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.weweibuy.upms.user.mapper.GroupMapper">
-  <resultMap id="BaseResultMap" type="com.weweibuy.upms.user.model.po.Group">
+<mapper namespace="com.weweibuy.upms.permission.mapper.FunctionMapper">
+  <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.Function">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
-    <result column="group_code" jdbcType="VARCHAR" property="groupCode" />
-    <result column="group_desc" jdbcType="VARCHAR" property="groupDesc" />
-    <result column="group_type" jdbcType="VARCHAR" property="groupType" />
+    <result column="function_code" jdbcType="VARCHAR" property="functionCode" />
+    <result column="function_desc" jdbcType="VARCHAR" property="functionDesc" />
+    <result column="parent_function_code" jdbcType="VARCHAR" property="parentFunctionCode" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -70,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, group_name, group_code, group_desc, group_type, is_delete, create_time, update_time
+    id, function_code, function_desc, parent_function_code, is_delete, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_function
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,13 +85,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.FunctionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_function
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -104,44 +103,41 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_function
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from upms_group
+    delete from upms_function
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample">
-    delete from upms_group
+  <delete id="deleteByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionExample">
+    delete from upms_function
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.weweibuy.upms.user.model.po.Group">
-    insert into upms_group (id, group_name, group_code, 
-      group_desc, group_type, is_delete, 
-      create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{groupName,jdbcType=VARCHAR}, #{groupCode,jdbcType=VARCHAR}, 
-      #{groupDesc,jdbcType=VARCHAR}, #{groupType,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.weweibuy.upms.permission.model.po.Function">
+    insert into upms_function (id, function_code, function_desc, 
+      parent_function_code, is_delete, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{functionCode,jdbcType=VARCHAR}, #{functionDesc,jdbcType=VARCHAR}, 
+      #{parentFunctionCode,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.weweibuy.upms.user.model.po.Group">
-    insert into upms_group
+  <insert id="insertSelective" parameterType="com.weweibuy.upms.permission.model.po.Function">
+    insert into upms_function
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="groupName != null">
-        group_name,
+      <if test="functionCode != null">
+        function_code,
       </if>
-      <if test="groupCode != null">
-        group_code,
+      <if test="functionDesc != null">
+        function_desc,
       </if>
-      <if test="groupDesc != null">
-        group_desc,
-      </if>
-      <if test="groupType != null">
-        group_type,
+      <if test="parentFunctionCode != null">
+        parent_function_code,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -157,17 +153,14 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="groupName != null">
-        #{groupName,jdbcType=VARCHAR},
+      <if test="functionCode != null">
+        #{functionCode,jdbcType=VARCHAR},
       </if>
-      <if test="groupCode != null">
-        #{groupCode,jdbcType=VARCHAR},
+      <if test="functionDesc != null">
+        #{functionDesc,jdbcType=VARCHAR},
       </if>
-      <if test="groupDesc != null">
-        #{groupDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="groupType != null">
-        #{groupType,jdbcType=VARCHAR},
+      <if test="parentFunctionCode != null">
+        #{parentFunctionCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -180,29 +173,26 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultType="java.lang.Long">
-    select count(*) from upms_group
+  <select id="countByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionExample" resultType="java.lang.Long">
+    select count(*) from upms_function
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update upms_group
+    update upms_function
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.groupName != null">
-        group_name = #{record.groupName,jdbcType=VARCHAR},
+      <if test="record.functionCode != null">
+        function_code = #{record.functionCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupCode != null">
-        group_code = #{record.groupCode,jdbcType=VARCHAR},
+      <if test="record.functionDesc != null">
+        function_desc = #{record.functionDesc,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupDesc != null">
-        group_desc = #{record.groupDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="record.groupType != null">
-        group_type = #{record.groupType,jdbcType=VARCHAR},
+      <if test="record.parentFunctionCode != null">
+        parent_function_code = #{record.parentFunctionCode,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -219,12 +209,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update upms_group
+    update upms_function
     set id = #{record.id,jdbcType=BIGINT},
-      group_name = #{record.groupName,jdbcType=VARCHAR},
-      group_code = #{record.groupCode,jdbcType=VARCHAR},
-      group_desc = #{record.groupDesc,jdbcType=VARCHAR},
-      group_type = #{record.groupType,jdbcType=VARCHAR},
+      function_code = #{record.functionCode,jdbcType=VARCHAR},
+      function_desc = #{record.functionDesc,jdbcType=VARCHAR},
+      parent_function_code = #{record.parentFunctionCode,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -232,20 +221,17 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.user.model.po.Group">
-    update upms_group
+  <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.permission.model.po.Function">
+    update upms_function
     <set>
-      <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+      <if test="functionCode != null">
+        function_code = #{functionCode,jdbcType=VARCHAR},
       </if>
-      <if test="groupCode != null">
-        group_code = #{groupCode,jdbcType=VARCHAR},
+      <if test="functionDesc != null">
+        function_desc = #{functionDesc,jdbcType=VARCHAR},
       </if>
-      <if test="groupDesc != null">
-        group_desc = #{groupDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="groupType != null">
-        group_type = #{groupType,jdbcType=VARCHAR},
+      <if test="parentFunctionCode != null">
+        parent_function_code = #{parentFunctionCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -259,21 +245,20 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.user.model.po.Group">
-    update upms_group
-    set group_name = #{groupName,jdbcType=VARCHAR},
-      group_code = #{groupCode,jdbcType=VARCHAR},
-      group_desc = #{groupDesc,jdbcType=VARCHAR},
-      group_type = #{groupType,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.Function">
+    update upms_function
+    set function_code = #{functionCode,jdbcType=VARCHAR},
+      function_desc = #{functionDesc,jdbcType=VARCHAR},
+      parent_function_code = #{parentFunctionCode,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectOneByExample" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectOneByExample" parameterType="com.weweibuy.upms.permission.model.example.FunctionExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_function
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -282,10 +267,10 @@
     </if>
     limit 1
   </select>
-  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.user.model.example.GroupExample" resultMap="BaseResultMap">
+  <select id="selectOneByExampleForUpdate" parameterType="com.weweibuy.upms.permission.model.example.FunctionExample" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from upms_group
+    from upms_function
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

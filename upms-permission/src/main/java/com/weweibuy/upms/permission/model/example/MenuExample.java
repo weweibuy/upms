@@ -1,17 +1,17 @@
-package com.weweibuy.upms.user.model.example;
+package com.weweibuy.upms.permission.model.example;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserGroupExample {
+public class MenuExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public UserGroupExample() {
+    public MenuExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -45,12 +45,12 @@ public class UserGroupExample {
         return criteria;
     }
 
-    public UserGroupExample orderBy(String orderByClause) {
+    public MenuExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public UserGroupExample orderBy(String ... orderByClauses) {
+    public MenuExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -82,18 +82,18 @@ public class UserGroupExample {
     }
 
     public static Criteria newAndCreateCriteria() {
-        UserGroupExample example = new UserGroupExample();
+        MenuExample example = new MenuExample();
         return example.createCriteria();
     }
 
-    public UserGroupExample when(boolean condition, IExampleWhen then) {
+    public MenuExample when(boolean condition, IExampleWhen then) {
         if (condition) {
             then.example(this);
         }
         return this;
     }
 
-    public UserGroupExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
+    public MenuExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
         if (condition) {
             then.example(this);
         } else {
@@ -203,143 +203,283 @@ public class UserGroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNull() {
-            addCriterion("user_name is null");
+        public Criteria andMenuCodeIsNull() {
+            addCriterion("menu_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNotNull() {
-            addCriterion("user_name is not null");
+        public Criteria andMenuCodeIsNotNull() {
+            addCriterion("menu_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameEqualTo(String value) {
-            addCriterion("user_name =", value, "userName");
+        public Criteria andMenuCodeEqualTo(String value) {
+            addCriterion("menu_code =", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotEqualTo(String value) {
-            addCriterion("user_name <>", value, "userName");
+        public Criteria andMenuCodeNotEqualTo(String value) {
+            addCriterion("menu_code <>", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThan(String value) {
-            addCriterion("user_name >", value, "userName");
+        public Criteria andMenuCodeGreaterThan(String value) {
+            addCriterion("menu_code >", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
-            addCriterion("user_name >=", value, "userName");
+        public Criteria andMenuCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("menu_code >=", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThan(String value) {
-            addCriterion("user_name <", value, "userName");
+        public Criteria andMenuCodeLessThan(String value) {
+            addCriterion("menu_code <", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThanOrEqualTo(String value) {
-            addCriterion("user_name <=", value, "userName");
+        public Criteria andMenuCodeLessThanOrEqualTo(String value) {
+            addCriterion("menu_code <=", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLike(String value) {
-            addCriterion("user_name like", value, "userName");
+        public Criteria andMenuCodeLike(String value) {
+            addCriterion("menu_code like", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotLike(String value) {
-            addCriterion("user_name not like", value, "userName");
+        public Criteria andMenuCodeNotLike(String value) {
+            addCriterion("menu_code not like", value, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIn(List<String> values) {
-            addCriterion("user_name in", values, "userName");
+        public Criteria andMenuCodeIn(List<String> values) {
+            addCriterion("menu_code in", values, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotIn(List<String> values) {
-            addCriterion("user_name not in", values, "userName");
+        public Criteria andMenuCodeNotIn(List<String> values) {
+            addCriterion("menu_code not in", values, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameBetween(String value1, String value2) {
-            addCriterion("user_name between", value1, value2, "userName");
+        public Criteria andMenuCodeBetween(String value1, String value2) {
+            addCriterion("menu_code between", value1, value2, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotBetween(String value1, String value2) {
-            addCriterion("user_name not between", value1, value2, "userName");
+        public Criteria andMenuCodeNotBetween(String value1, String value2) {
+            addCriterion("menu_code not between", value1, value2, "menuCode");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNull() {
-            addCriterion("group_code is null");
+        public Criteria andMenuDescIsNull() {
+            addCriterion("menu_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNotNull() {
-            addCriterion("group_code is not null");
+        public Criteria andMenuDescIsNotNull() {
+            addCriterion("menu_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeEqualTo(String value) {
-            addCriterion("group_code =", value, "groupCode");
+        public Criteria andMenuDescEqualTo(String value) {
+            addCriterion("menu_desc =", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotEqualTo(String value) {
-            addCriterion("group_code <>", value, "groupCode");
+        public Criteria andMenuDescNotEqualTo(String value) {
+            addCriterion("menu_desc <>", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThan(String value) {
-            addCriterion("group_code >", value, "groupCode");
+        public Criteria andMenuDescGreaterThan(String value) {
+            addCriterion("menu_desc >", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("group_code >=", value, "groupCode");
+        public Criteria andMenuDescGreaterThanOrEqualTo(String value) {
+            addCriterion("menu_desc >=", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThan(String value) {
-            addCriterion("group_code <", value, "groupCode");
+        public Criteria andMenuDescLessThan(String value) {
+            addCriterion("menu_desc <", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThanOrEqualTo(String value) {
-            addCriterion("group_code <=", value, "groupCode");
+        public Criteria andMenuDescLessThanOrEqualTo(String value) {
+            addCriterion("menu_desc <=", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLike(String value) {
-            addCriterion("group_code like", value, "groupCode");
+        public Criteria andMenuDescLike(String value) {
+            addCriterion("menu_desc like", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotLike(String value) {
-            addCriterion("group_code not like", value, "groupCode");
+        public Criteria andMenuDescNotLike(String value) {
+            addCriterion("menu_desc not like", value, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIn(List<String> values) {
-            addCriterion("group_code in", values, "groupCode");
+        public Criteria andMenuDescIn(List<String> values) {
+            addCriterion("menu_desc in", values, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotIn(List<String> values) {
-            addCriterion("group_code not in", values, "groupCode");
+        public Criteria andMenuDescNotIn(List<String> values) {
+            addCriterion("menu_desc not in", values, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeBetween(String value1, String value2) {
-            addCriterion("group_code between", value1, value2, "groupCode");
+        public Criteria andMenuDescBetween(String value1, String value2) {
+            addCriterion("menu_desc between", value1, value2, "menuDesc");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotBetween(String value1, String value2) {
-            addCriterion("group_code not between", value1, value2, "groupCode");
+        public Criteria andMenuDescNotBetween(String value1, String value2) {
+            addCriterion("menu_desc not between", value1, value2, "menuDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeIsNull() {
+            addCriterion("menu_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeIsNotNull() {
+            addCriterion("menu_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeEqualTo(String value) {
+            addCriterion("menu_type =", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeNotEqualTo(String value) {
+            addCriterion("menu_type <>", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeGreaterThan(String value) {
+            addCriterion("menu_type >", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("menu_type >=", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeLessThan(String value) {
+            addCriterion("menu_type <", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeLessThanOrEqualTo(String value) {
+            addCriterion("menu_type <=", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeLike(String value) {
+            addCriterion("menu_type like", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeNotLike(String value) {
+            addCriterion("menu_type not like", value, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeIn(List<String> values) {
+            addCriterion("menu_type in", values, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeNotIn(List<String> values) {
+            addCriterion("menu_type not in", values, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeBetween(String value1, String value2) {
+            addCriterion("menu_type between", value1, value2, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andMenuTypeNotBetween(String value1, String value2) {
+            addCriterion("menu_type not between", value1, value2, "menuType");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeIsNull() {
+            addCriterion("parent_menu_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeIsNotNull() {
+            addCriterion("parent_menu_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeEqualTo(String value) {
+            addCriterion("parent_menu_code =", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeNotEqualTo(String value) {
+            addCriterion("parent_menu_code <>", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeGreaterThan(String value) {
+            addCriterion("parent_menu_code >", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("parent_menu_code >=", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeLessThan(String value) {
+            addCriterion("parent_menu_code <", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeLessThanOrEqualTo(String value) {
+            addCriterion("parent_menu_code <=", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeLike(String value) {
+            addCriterion("parent_menu_code like", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeNotLike(String value) {
+            addCriterion("parent_menu_code not like", value, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeIn(List<String> values) {
+            addCriterion("parent_menu_code in", values, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeNotIn(List<String> values) {
+            addCriterion("parent_menu_code not in", values, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeBetween(String value1, String value2) {
+            addCriterion("parent_menu_code between", value1, value2, "parentMenuCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentMenuCodeNotBetween(String value1, String value2) {
+            addCriterion("parent_menu_code not between", value1, value2, "parentMenuCode");
             return (Criteria) this;
         }
 
@@ -525,14 +665,14 @@ public class UserGroupExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private UserGroupExample example;
+        private MenuExample example;
 
-        protected Criteria(UserGroupExample example) {
+        protected Criteria(MenuExample example) {
             super();
             this.example = example;
         }
 
-        public UserGroupExample example() {
+        public MenuExample example() {
             return this.example;
         }
 
@@ -657,6 +797,6 @@ public class UserGroupExample {
     }
 
     public interface IExampleWhen {
-        void example(com.weweibuy.upms.user.model.example.UserGroupExample example);
+        void example(com.weweibuy.upms.permission.model.example.MenuExample example);
     }
 }

@@ -3,11 +3,12 @@
 <mapper namespace="com.weweibuy.upms.user.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.weweibuy.upms.user.model.po.User">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
     <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -71,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, username, password, phone_no, email, is_delete, create_time, update_time
+    id, full_name, username, password, phone_no, email, user_type, is_delete, create_time, 
+    update_time
   </sql>
   <select id="selectByExample" parameterType="com.weweibuy.upms.user.model.example.UserExample" resultMap="BaseResultMap">
     select
@@ -119,14 +121,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.weweibuy.upms.user.model.po.User">
-    insert into upms_user (id, name, username, 
+    insert into upms_user (id, full_name, username, 
       password, phone_no, email, 
-      is_delete, create_time, update_time
-      )
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      user_type, is_delete, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{fullName,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{userType,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.weweibuy.upms.user.model.po.User">
     insert into upms_user
@@ -134,8 +136,8 @@
       <if test="id != null">
         id,
       </if>
-      <if test="name != null">
-        name,
+      <if test="fullName != null">
+        full_name,
       </if>
       <if test="username != null">
         username,
@@ -148,6 +150,9 @@
       </if>
       <if test="email != null">
         email,
+      </if>
+      <if test="userType != null">
+        user_type,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -163,8 +168,8 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="fullName != null">
+        #{fullName,jdbcType=VARCHAR},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -177,6 +182,9 @@
       </if>
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -201,8 +209,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.fullName != null">
+        full_name = #{record.fullName,jdbcType=VARCHAR},
       </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
@@ -215,6 +223,9 @@
       </if>
       <if test="record.email != null">
         email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userType != null">
+        user_type = #{record.userType,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -233,11 +244,12 @@
   <update id="updateByExample" parameterType="map">
     update upms_user
     set id = #{record.id,jdbcType=BIGINT},
-      name = #{record.name,jdbcType=VARCHAR},
+      full_name = #{record.fullName,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       phone_no = #{record.phoneNo,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
+      user_type = #{record.userType,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -248,8 +260,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.weweibuy.upms.user.model.po.User">
     update upms_user
     <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+      <if test="fullName != null">
+        full_name = #{fullName,jdbcType=VARCHAR},
       </if>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
@@ -262,6 +274,9 @@
       </if>
       <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -277,11 +292,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.user.model.po.User">
     update upms_user
-    set name = #{name,jdbcType=VARCHAR},
+    set full_name = #{fullName,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       phone_no = #{phoneNo,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

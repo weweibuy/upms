@@ -1,35 +1,34 @@
-package com.weweibuy.upms.user.model.po;
-
-import lombok.Data;
+package com.weweibuy.upms.permission.model.po;
 
 import java.time.LocalDateTime;
+import lombok.Data;
 
 @Data
-public class Group {
+public class ApiDataPermission {
     /**
      * id
      */
     private Long id;
 
     /**
-     * 名称
+     * 数据名
      */
-    private String groupName;
+    private String dataName;
 
     /**
-     * 组代码
+     * 用户标识
      */
-    private String groupCode;
+    private String userSymbol;
 
     /**
-     * 组描述
+     * 标识类型(用户名/用户组)
      */
-    private String groupDesc;
+    private String symbolType;
 
     /**
-     * 组类型
+     * 数据值(_UNLIMIT:表示不限制)
      */
-    private String groupType;
+    private String dataValue;
 
     /**
      * 是否删除

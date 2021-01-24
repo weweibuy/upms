@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.weweibuy.upms.user.model.po.UserGroup">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="group_key" jdbcType="VARCHAR" property="groupKey" />
+    <result column="group_code" jdbcType="VARCHAR" property="groupCode" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_name, group_key, is_delete, create_time, update_time
+    id, user_name, group_code, is_delete, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.weweibuy.upms.user.model.example.UserGroupExample" resultMap="BaseResultMap">
     select
@@ -116,10 +116,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.weweibuy.upms.user.model.po.UserGroup">
-    insert into upms_user_group (id, user_name, group_key, 
+    insert into upms_user_group (id, user_name, group_code, 
       is_delete, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{groupKey,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{groupCode,jdbcType=VARCHAR}, 
       #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -132,8 +132,8 @@
       <if test="userName != null">
         user_name,
       </if>
-      <if test="groupKey != null">
-        group_key,
+      <if test="groupCode != null">
+        group_code,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -152,8 +152,8 @@
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="groupKey != null">
-        #{groupKey,jdbcType=VARCHAR},
+      <if test="groupCode != null">
+        #{groupCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -181,8 +181,8 @@
       <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupKey != null">
-        group_key = #{record.groupKey,jdbcType=VARCHAR},
+      <if test="record.groupCode != null">
+        group_code = #{record.groupCode,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -202,7 +202,7 @@
     update upms_user_group
     set id = #{record.id,jdbcType=BIGINT},
       user_name = #{record.userName,jdbcType=VARCHAR},
-      group_key = #{record.groupKey,jdbcType=VARCHAR},
+      group_code = #{record.groupCode,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -216,8 +216,8 @@
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="groupKey != null">
-        group_key = #{groupKey,jdbcType=VARCHAR},
+      <if test="groupCode != null">
+        group_code = #{groupCode,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -234,7 +234,7 @@
   <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.user.model.po.UserGroup">
     update upms_user_group
     set user_name = #{userName,jdbcType=VARCHAR},
-      group_key = #{groupKey,jdbcType=VARCHAR},
+      group_code = #{groupCode,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

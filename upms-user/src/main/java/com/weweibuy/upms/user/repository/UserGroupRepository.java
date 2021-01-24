@@ -21,14 +21,14 @@ public class UserGroupRepository {
     public List<UserGroup> selectByGroupKey(String groupKey) {
         return userGroupMapper.selectByExample(UserGroupExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andGroupKeyEqualTo(groupKey)
+                .andGroupCodeEqualTo(groupKey)
                 .example());
     }
 
     public List<UserGroup> selectByGroupKey(List<String> groupKeyList) {
         return userGroupMapper.selectByExample(UserGroupExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andGroupKeyIn(groupKeyList)
+                .andGroupCodeIn(groupKeyList)
                 .example());
     }
 

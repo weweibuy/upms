@@ -16,9 +16,9 @@ public class UserGroup {
     private String userName;
 
     /**
-     * 组名
+     * 组代码
      */
-    private String groupKey;
+    private String groupCode;
 
     /**
      * 是否删除

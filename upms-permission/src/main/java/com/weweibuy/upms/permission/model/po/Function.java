@@ -1,40 +1,35 @@
-package com.weweibuy.upms.api.user.dto.response;
+package com.weweibuy.upms.permission.model.po;
 
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * @author durenhao
- * @date 2020/10/25 9:19
- **/
 @Data
-public class GroupRespDTO {
-
+public class Function {
     /**
      * id
      */
     private Long id;
 
     /**
-     * 名称
+     * 功能名
      */
-    private String groupName;
+    private String functionCode;
 
     /**
-     * 组代码
+     * 功能描述
      */
-    private String groupCode;
+    private String functionDesc;
 
     /**
-     * 组描述
+     * 父功代码
      */
-    private String groupDesc;
+    private String parentFunctionCode;
 
     /**
-     * 组类型
+     * 是否删除
      */
-    private String groupType;
+    private Boolean deleted;
 
     /**
      * 创建时间
@@ -45,5 +40,4 @@ public class GroupRespDTO {
      * 更新时间
      */
     private LocalDateTime updateTime;
-
 }

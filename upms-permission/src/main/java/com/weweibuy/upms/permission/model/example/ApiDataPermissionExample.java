@@ -1,17 +1,17 @@
-package com.weweibuy.upms.user.model.example;
+package com.weweibuy.upms.permission.model.example;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserGroupExample {
+public class ApiDataPermissionExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public UserGroupExample() {
+    public ApiDataPermissionExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -45,12 +45,12 @@ public class UserGroupExample {
         return criteria;
     }
 
-    public UserGroupExample orderBy(String orderByClause) {
+    public ApiDataPermissionExample orderBy(String orderByClause) {
         this.setOrderByClause(orderByClause);
         return this;
     }
 
-    public UserGroupExample orderBy(String ... orderByClauses) {
+    public ApiDataPermissionExample orderBy(String ... orderByClauses) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < orderByClauses.length; i++) {
             sb.append(orderByClauses[i]);
@@ -82,18 +82,18 @@ public class UserGroupExample {
     }
 
     public static Criteria newAndCreateCriteria() {
-        UserGroupExample example = new UserGroupExample();
+        ApiDataPermissionExample example = new ApiDataPermissionExample();
         return example.createCriteria();
     }
 
-    public UserGroupExample when(boolean condition, IExampleWhen then) {
+    public ApiDataPermissionExample when(boolean condition, IExampleWhen then) {
         if (condition) {
             then.example(this);
         }
         return this;
     }
 
-    public UserGroupExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
+    public ApiDataPermissionExample when(boolean condition, IExampleWhen then, IExampleWhen otherwise) {
         if (condition) {
             then.example(this);
         } else {
@@ -203,143 +203,283 @@ public class UserGroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNull() {
-            addCriterion("user_name is null");
+        public Criteria andDataNameIsNull() {
+            addCriterion("data_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIsNotNull() {
-            addCriterion("user_name is not null");
+        public Criteria andDataNameIsNotNull() {
+            addCriterion("data_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameEqualTo(String value) {
-            addCriterion("user_name =", value, "userName");
+        public Criteria andDataNameEqualTo(String value) {
+            addCriterion("data_name =", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotEqualTo(String value) {
-            addCriterion("user_name <>", value, "userName");
+        public Criteria andDataNameNotEqualTo(String value) {
+            addCriterion("data_name <>", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThan(String value) {
-            addCriterion("user_name >", value, "userName");
+        public Criteria andDataNameGreaterThan(String value) {
+            addCriterion("data_name >", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
-            addCriterion("user_name >=", value, "userName");
+        public Criteria andDataNameGreaterThanOrEqualTo(String value) {
+            addCriterion("data_name >=", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThan(String value) {
-            addCriterion("user_name <", value, "userName");
+        public Criteria andDataNameLessThan(String value) {
+            addCriterion("data_name <", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLessThanOrEqualTo(String value) {
-            addCriterion("user_name <=", value, "userName");
+        public Criteria andDataNameLessThanOrEqualTo(String value) {
+            addCriterion("data_name <=", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameLike(String value) {
-            addCriterion("user_name like", value, "userName");
+        public Criteria andDataNameLike(String value) {
+            addCriterion("data_name like", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotLike(String value) {
-            addCriterion("user_name not like", value, "userName");
+        public Criteria andDataNameNotLike(String value) {
+            addCriterion("data_name not like", value, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameIn(List<String> values) {
-            addCriterion("user_name in", values, "userName");
+        public Criteria andDataNameIn(List<String> values) {
+            addCriterion("data_name in", values, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotIn(List<String> values) {
-            addCriterion("user_name not in", values, "userName");
+        public Criteria andDataNameNotIn(List<String> values) {
+            addCriterion("data_name not in", values, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameBetween(String value1, String value2) {
-            addCriterion("user_name between", value1, value2, "userName");
+        public Criteria andDataNameBetween(String value1, String value2) {
+            addCriterion("data_name between", value1, value2, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andUserNameNotBetween(String value1, String value2) {
-            addCriterion("user_name not between", value1, value2, "userName");
+        public Criteria andDataNameNotBetween(String value1, String value2) {
+            addCriterion("data_name not between", value1, value2, "dataName");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNull() {
-            addCriterion("group_code is null");
+        public Criteria andUserSymbolIsNull() {
+            addCriterion("user_symbol is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIsNotNull() {
-            addCriterion("group_code is not null");
+        public Criteria andUserSymbolIsNotNull() {
+            addCriterion("user_symbol is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeEqualTo(String value) {
-            addCriterion("group_code =", value, "groupCode");
+        public Criteria andUserSymbolEqualTo(String value) {
+            addCriterion("user_symbol =", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotEqualTo(String value) {
-            addCriterion("group_code <>", value, "groupCode");
+        public Criteria andUserSymbolNotEqualTo(String value) {
+            addCriterion("user_symbol <>", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThan(String value) {
-            addCriterion("group_code >", value, "groupCode");
+        public Criteria andUserSymbolGreaterThan(String value) {
+            addCriterion("user_symbol >", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("group_code >=", value, "groupCode");
+        public Criteria andUserSymbolGreaterThanOrEqualTo(String value) {
+            addCriterion("user_symbol >=", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThan(String value) {
-            addCriterion("group_code <", value, "groupCode");
+        public Criteria andUserSymbolLessThan(String value) {
+            addCriterion("user_symbol <", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLessThanOrEqualTo(String value) {
-            addCriterion("group_code <=", value, "groupCode");
+        public Criteria andUserSymbolLessThanOrEqualTo(String value) {
+            addCriterion("user_symbol <=", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeLike(String value) {
-            addCriterion("group_code like", value, "groupCode");
+        public Criteria andUserSymbolLike(String value) {
+            addCriterion("user_symbol like", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotLike(String value) {
-            addCriterion("group_code not like", value, "groupCode");
+        public Criteria andUserSymbolNotLike(String value) {
+            addCriterion("user_symbol not like", value, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeIn(List<String> values) {
-            addCriterion("group_code in", values, "groupCode");
+        public Criteria andUserSymbolIn(List<String> values) {
+            addCriterion("user_symbol in", values, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotIn(List<String> values) {
-            addCriterion("group_code not in", values, "groupCode");
+        public Criteria andUserSymbolNotIn(List<String> values) {
+            addCriterion("user_symbol not in", values, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeBetween(String value1, String value2) {
-            addCriterion("group_code between", value1, value2, "groupCode");
+        public Criteria andUserSymbolBetween(String value1, String value2) {
+            addCriterion("user_symbol between", value1, value2, "userSymbol");
             return (Criteria) this;
         }
 
-        public Criteria andGroupCodeNotBetween(String value1, String value2) {
-            addCriterion("group_code not between", value1, value2, "groupCode");
+        public Criteria andUserSymbolNotBetween(String value1, String value2) {
+            addCriterion("user_symbol not between", value1, value2, "userSymbol");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeIsNull() {
+            addCriterion("symbol_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeIsNotNull() {
+            addCriterion("symbol_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeEqualTo(String value) {
+            addCriterion("symbol_type =", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeNotEqualTo(String value) {
+            addCriterion("symbol_type <>", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeGreaterThan(String value) {
+            addCriterion("symbol_type >", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("symbol_type >=", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeLessThan(String value) {
+            addCriterion("symbol_type <", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeLessThanOrEqualTo(String value) {
+            addCriterion("symbol_type <=", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeLike(String value) {
+            addCriterion("symbol_type like", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeNotLike(String value) {
+            addCriterion("symbol_type not like", value, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeIn(List<String> values) {
+            addCriterion("symbol_type in", values, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeNotIn(List<String> values) {
+            addCriterion("symbol_type not in", values, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeBetween(String value1, String value2) {
+            addCriterion("symbol_type between", value1, value2, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andSymbolTypeNotBetween(String value1, String value2) {
+            addCriterion("symbol_type not between", value1, value2, "symbolType");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueIsNull() {
+            addCriterion("data_value is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueIsNotNull() {
+            addCriterion("data_value is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueEqualTo(String value) {
+            addCriterion("data_value =", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueNotEqualTo(String value) {
+            addCriterion("data_value <>", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueGreaterThan(String value) {
+            addCriterion("data_value >", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueGreaterThanOrEqualTo(String value) {
+            addCriterion("data_value >=", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueLessThan(String value) {
+            addCriterion("data_value <", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueLessThanOrEqualTo(String value) {
+            addCriterion("data_value <=", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueLike(String value) {
+            addCriterion("data_value like", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueNotLike(String value) {
+            addCriterion("data_value not like", value, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueIn(List<String> values) {
+            addCriterion("data_value in", values, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueNotIn(List<String> values) {
+            addCriterion("data_value not in", values, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueBetween(String value1, String value2) {
+            addCriterion("data_value between", value1, value2, "dataValue");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataValueNotBetween(String value1, String value2) {
+            addCriterion("data_value not between", value1, value2, "dataValue");
             return (Criteria) this;
         }
 
@@ -525,14 +665,14 @@ public class UserGroupExample {
     }
 
     public static class Criteria extends GeneratedCriteria {
-        private UserGroupExample example;
+        private ApiDataPermissionExample example;
 
-        protected Criteria(UserGroupExample example) {
+        protected Criteria(ApiDataPermissionExample example) {
             super();
             this.example = example;
         }
 
-        public UserGroupExample example() {
+        public ApiDataPermissionExample example() {
             return this.example;
         }
 
@@ -657,6 +797,6 @@ public class UserGroupExample {
     }
 
     public interface IExampleWhen {
-        void example(com.weweibuy.upms.user.model.example.UserGroupExample example);
+        void example(com.weweibuy.upms.permission.model.example.ApiDataPermissionExample example);
     }
 }

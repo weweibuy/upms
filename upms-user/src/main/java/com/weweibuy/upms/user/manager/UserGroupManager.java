@@ -28,7 +28,7 @@ public class UserGroupManager {
 
     public List<String> usernameToGroupKey(List<String> usernameList) {
         return userGroupRepository.selectByUserName(usernameList).stream()
-                .map(UserGroup::getGroupKey)
+                .map(UserGroup::getGroupCode)
                 .distinct()
                 .collect(Collectors.toList());
     }

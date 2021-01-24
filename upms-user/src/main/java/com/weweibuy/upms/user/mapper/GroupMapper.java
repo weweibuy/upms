@@ -2,10 +2,9 @@ package com.weweibuy.upms.user.mapper;
 
 import com.weweibuy.upms.user.model.example.GroupExample;
 import com.weweibuy.upms.user.model.po.Group;
+import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 @Mapper
 public interface GroupMapper {

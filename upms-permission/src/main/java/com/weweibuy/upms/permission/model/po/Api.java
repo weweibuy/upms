@@ -1,35 +1,39 @@
-package com.weweibuy.upms.user.model.po;
-
-import lombok.Data;
+package com.weweibuy.upms.permission.model.po;
 
 import java.time.LocalDateTime;
+import lombok.Data;
 
 @Data
-public class Group {
+public class Api {
     /**
      * id
      */
     private Long id;
 
     /**
-     * 名称
+     * 接口代码
      */
-    private String groupName;
+    private String apiCode;
 
     /**
-     * 组代码
+     * 接口描述
      */
-    private String groupCode;
+    private String apiDesc;
 
     /**
-     * 组描述
+     * 接口服务
      */
-    private String groupDesc;
+    private String apiService;
 
     /**
-     * 组类型
+     * 接口地址
      */
-    private String groupType;
+    private String apiAddress;
+
+    /**
+     * 请求方法
+     */
+    private String apiMethod;
 
     /**
      * 是否删除

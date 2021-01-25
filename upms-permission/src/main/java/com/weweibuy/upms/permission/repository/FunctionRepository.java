@@ -37,7 +37,7 @@ public class FunctionRepository {
         return functionPermissionMapper.selectByExample(FunctionPermissionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andUserSymbolIn(userSymbolList)
-                .andSymbolTypeEqualTo(userSymbolType.toString())
+                .andSymbolTypeEqualTo(userSymbolType.getCode())
                 .example());
     }
 
@@ -45,7 +45,7 @@ public class FunctionRepository {
         return functionPermissionMapper.selectByExample(FunctionPermissionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andUserSymbolEqualTo(userSymbol)
-                .andSymbolTypeEqualTo(userSymbolType.toString())
+                .andSymbolTypeEqualTo(userSymbolType.getCode())
                 .example());
     }
 

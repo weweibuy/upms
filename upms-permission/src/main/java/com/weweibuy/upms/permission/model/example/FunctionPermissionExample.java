@@ -283,62 +283,52 @@ public class FunctionPermissionExample {
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeEqualTo(String value) {
+        public Criteria andSymbolTypeEqualTo(Integer value) {
             addCriterion("symbol_type =", value, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeNotEqualTo(String value) {
+        public Criteria andSymbolTypeNotEqualTo(Integer value) {
             addCriterion("symbol_type <>", value, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeGreaterThan(String value) {
+        public Criteria andSymbolTypeGreaterThan(Integer value) {
             addCriterion("symbol_type >", value, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeGreaterThanOrEqualTo(String value) {
+        public Criteria andSymbolTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("symbol_type >=", value, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeLessThan(String value) {
+        public Criteria andSymbolTypeLessThan(Integer value) {
             addCriterion("symbol_type <", value, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeLessThanOrEqualTo(String value) {
+        public Criteria andSymbolTypeLessThanOrEqualTo(Integer value) {
             addCriterion("symbol_type <=", value, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeLike(String value) {
-            addCriterion("symbol_type like", value, "symbolType");
-            return (Criteria) this;
-        }
-
-        public Criteria andSymbolTypeNotLike(String value) {
-            addCriterion("symbol_type not like", value, "symbolType");
-            return (Criteria) this;
-        }
-
-        public Criteria andSymbolTypeIn(List<String> values) {
+        public Criteria andSymbolTypeIn(List<Integer> values) {
             addCriterion("symbol_type in", values, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeNotIn(List<String> values) {
+        public Criteria andSymbolTypeNotIn(List<Integer> values) {
             addCriterion("symbol_type not in", values, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeBetween(String value1, String value2) {
+        public Criteria andSymbolTypeBetween(Integer value1, Integer value2) {
             addCriterion("symbol_type between", value1, value2, "symbolType");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolTypeNotBetween(String value1, String value2) {
+        public Criteria andSymbolTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("symbol_type not between", value1, value2, "symbolType");
             return (Criteria) this;
         }

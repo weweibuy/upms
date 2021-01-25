@@ -1,7 +1,8 @@
 package com.weweibuy.upms.permission.model.po;
 
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 public class FunctionPermission {
@@ -16,9 +17,9 @@ public class FunctionPermission {
     private String userSymbol;
 
     /**
-     * 标识类型(用户名/用户组)
+     * 标识类型(0:用户; 1:用户组)
      */
-    private String symbolType;
+    private Integer symbolType;
 
     /**
      * 功能代码

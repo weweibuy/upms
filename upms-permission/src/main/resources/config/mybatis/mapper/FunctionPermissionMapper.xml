@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.weweibuy.upms.permission.model.po.FunctionPermission">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_symbol" jdbcType="VARCHAR" property="userSymbol" />
-    <result column="symbol_type" jdbcType="VARCHAR" property="symbolType" />
+    <result column="symbol_type" jdbcType="TINYINT" property="symbolType" />
     <result column="function_code" jdbcType="VARCHAR" property="functionCode" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -120,7 +120,7 @@
     insert into upms_function_permission (id, user_symbol, symbol_type, 
       function_code, is_delete, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{userSymbol,jdbcType=VARCHAR}, #{symbolType,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{userSymbol,jdbcType=VARCHAR}, #{symbolType,jdbcType=TINYINT}, 
       #{functionCode,jdbcType=VARCHAR}, #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -157,7 +157,7 @@
         #{userSymbol,jdbcType=VARCHAR},
       </if>
       <if test="symbolType != null">
-        #{symbolType,jdbcType=VARCHAR},
+        #{symbolType,jdbcType=TINYINT},
       </if>
       <if test="functionCode != null">
         #{functionCode,jdbcType=VARCHAR},
@@ -189,7 +189,7 @@
         user_symbol = #{record.userSymbol,jdbcType=VARCHAR},
       </if>
       <if test="record.symbolType != null">
-        symbol_type = #{record.symbolType,jdbcType=VARCHAR},
+        symbol_type = #{record.symbolType,jdbcType=TINYINT},
       </if>
       <if test="record.functionCode != null">
         function_code = #{record.functionCode,jdbcType=VARCHAR},
@@ -212,7 +212,7 @@
     update upms_function_permission
     set id = #{record.id,jdbcType=BIGINT},
       user_symbol = #{record.userSymbol,jdbcType=VARCHAR},
-      symbol_type = #{record.symbolType,jdbcType=VARCHAR},
+      symbol_type = #{record.symbolType,jdbcType=TINYINT},
       function_code = #{record.functionCode,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -228,7 +228,7 @@
         user_symbol = #{userSymbol,jdbcType=VARCHAR},
       </if>
       <if test="symbolType != null">
-        symbol_type = #{symbolType,jdbcType=VARCHAR},
+        symbol_type = #{symbolType,jdbcType=TINYINT},
       </if>
       <if test="functionCode != null">
         function_code = #{functionCode,jdbcType=VARCHAR},
@@ -248,7 +248,7 @@
   <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.permission.model.po.FunctionPermission">
     update upms_function_permission
     set user_symbol = #{userSymbol,jdbcType=VARCHAR},
-      symbol_type = #{symbolType,jdbcType=VARCHAR},
+      symbol_type = #{symbolType,jdbcType=TINYINT},
       function_code = #{functionCode,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},

@@ -21,9 +21,9 @@ public class ApiDataPermission {
     private String userSymbol;
 
     /**
-     * 标识类型(用户名/用户组)
+     * 标识类型(0: 用户; 1: 用户组)
      */
-    private String symbolType;
+    private Integer symbolType;
 
     /**
      * 数据值(_UNLIMIT:表示不限制)

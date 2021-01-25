@@ -74,10 +74,12 @@
 
         <table tableName="upms_function_permission" domainObjectName="FunctionPermission" >
             <columnOverride column="is_delete"  property="deleted"  javaType="Boolean"/>
+            <columnOverride column="symbol_type" javaType="Integer"/>
         </table>
 
         <table tableName="upms_api_data_permission" domainObjectName="ApiDataPermission" >
             <columnOverride column="is_delete"  property="deleted"  javaType="Boolean"/>
+            <columnOverride column="symbol_type" javaType="Integer"/>
         </table>
 
         <table tableName="upms_api_data_permission_field" domainObjectName="ApiDataPermissionField" >

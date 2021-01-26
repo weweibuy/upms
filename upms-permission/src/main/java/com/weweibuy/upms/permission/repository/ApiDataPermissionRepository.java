@@ -2,6 +2,7 @@ package com.weweibuy.upms.permission.repository;
 
 import com.weweibuy.upms.permission.mapper.ApiDataPermissionFieldMapper;
 import com.weweibuy.upms.permission.mapper.ApiDataPermissionMapper;
+import com.weweibuy.upms.permission.model.eum.UserSymbolTypeEum;
 import com.weweibuy.upms.permission.model.example.ApiDataPermissionExample;
 import com.weweibuy.upms.permission.model.example.ApiDataPermissionFieldExample;
 import com.weweibuy.upms.permission.model.po.ApiDataPermission;
@@ -54,6 +55,7 @@ public class ApiDataPermissionRepository {
                 .example()));
     }
 
+
     public List<ApiDataPermission> selectDataPermission(List<String> dataCodeList) {
         if (CollectionUtils.isEmpty(dataCodeList)) {
             return Collections.emptyList();
@@ -61,6 +63,24 @@ public class ApiDataPermissionRepository {
         return apiDataPermissionMapper.selectByExample(ApiDataPermissionExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
                 .andDataCodeIn(dataCodeList)
+                .example());
+    }
+
+    public List<ApiDataPermission> selectDataPermission(List<String> dataCodeList, String userSymbol, UserSymbolTypeEum symbolType) {
+        return apiDataPermissionMapper.selectByExample(ApiDataPermissionExample.newAndCreateCriteria()
+                .andDeletedEqualTo(false)
+                .andDataCodeIn(dataCodeList)
+                .andUserSymbolEqualTo(userSymbol)
+                .andSymbolTypeEqualTo(symbolType.getCode())
+                .example());
+    }
+
+    public List<ApiDataPermission> selectDataPermission(List<String> dataCodeList, List<String> userSymbolList, UserSymbolTypeEum symbolType) {
+        return apiDataPermissionMapper.selectByExample(ApiDataPermissionExample.newAndCreateCriteria()
+                .andDeletedEqualTo(false)
+                .andDataCodeIn(dataCodeList)
+                .andUserSymbolIn(userSymbolList)
+                .andSymbolTypeEqualTo(symbolType.getCode())
                 .example());
     }
 

@@ -1,16 +1,16 @@
 package com.weweibuy.upms.permission.manager;
 
+import com.weweibuy.framework.common.core.exception.Exceptions;
 import com.weweibuy.upms.interfaces.user.IUserService;
 import com.weweibuy.upms.interfaces.user.model.IUserGroup;
 import com.weweibuy.upms.permission.model.eum.UserSymbolTypeEum;
-import com.weweibuy.upms.permission.model.po.Api;
-import com.weweibuy.upms.permission.model.po.Function;
-import com.weweibuy.upms.permission.model.po.FunctionApiRelation;
-import com.weweibuy.upms.permission.model.po.FunctionPermission;
+import com.weweibuy.upms.permission.model.po.*;
+import com.weweibuy.upms.permission.repository.ApiDataPermissionRepository;
 import com.weweibuy.upms.permission.repository.ApiRepository;
 import com.weweibuy.upms.permission.repository.FunctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -34,6 +34,8 @@ public class PermissionInfoQueryManager {
     private final ApiRepository apiRepository;
 
     private final IUserService iUserService;
+
+    private final ApiDataPermissionRepository apiDataPermissionRepository;
 
 
     /**
@@ -115,5 +117,36 @@ public class PermissionInfoQueryManager {
         return apiRepository.selectApi(apiCodeList);
     }
 
+
+    public List<ApiDataPermissionField> queryApiDataPermissionField(String service, String path, HttpMethod httpMethod) {
+        Api api = apiRepository.selectApi(service, path, httpMethod)
+                .orElseThrow(() -> Exceptions.formatBusiness("不存在的Api: 服务:%s, 路径:%s, 方法:%s", service, path, httpMethod));
+
+        return apiDataPermissionRepository.selectField(api.getApiCode());
+
+    }
+
+
+    public List<ApiDataPermission> queryApiDataPermission(List<String> dataCodeList, String username) {
+
+        List<IUserGroup> userGroup = iUserService.queryUserGroup(username);
+
+        List<ApiDataPermission> dataPermissionList1 = Collections.emptyList();
+        if (CollectionUtils.isNotEmpty(userGroup)) {
+            List<String> groupCodeList = userGroup.stream()
+                    .map(IUserGroup::getGroupCode)
+                    .collect(Collectors.toList());
+            dataPermissionList1 = apiDataPermissionRepository.selectDataPermission(dataCodeList, groupCodeList, UserSymbolTypeEum.GROUP);
+        }
+
+        List<ApiDataPermission> dataPermissionList2 = apiDataPermissionRepository.selectDataPermission(dataCodeList, username, UserSymbolTypeEum.USER);
+
+        if (CollectionUtils.isEmpty(dataPermissionList1) && CollectionUtils.isEmpty(dataPermissionList2)) {
+            return Collections.emptyList();
+        }
+
+        dataPermissionList2.addAll(dataPermissionList1);
+        return dataPermissionList2;
+    }
 
 }

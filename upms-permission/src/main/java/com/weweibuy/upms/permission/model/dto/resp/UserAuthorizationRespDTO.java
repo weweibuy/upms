@@ -9,13 +9,13 @@ import lombok.Data;
  * @date 2020/12/27 17:38
  **/
 @Data
-public class UserAuthorizationResp {
+public class UserAuthorizationRespDTO {
 
     private String username;
 
 
-    public static UserAuthorizationResp fromUsername(String username) {
-        UserAuthorizationResp userAuthorizationResp = new UserAuthorizationResp();
+    public static UserAuthorizationRespDTO fromUsername(String username) {
+        UserAuthorizationRespDTO userAuthorizationResp = new UserAuthorizationRespDTO();
         userAuthorizationResp.setUsername(username);
         return userAuthorizationResp;
     }

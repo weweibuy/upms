@@ -8,6 +8,7 @@ import com.weweibuy.upms.permission.model.po.Api;
 import com.weweibuy.upms.permission.model.po.FunctionApiRelation;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
@@ -54,6 +55,16 @@ public class ApiRepository {
                 .andApiCodeEqualTo(apiCode)
                 .example()));
     }
+
+    public Optional<Api> selectApi(String service, String path, HttpMethod httpMethod) {
+        return Optional.ofNullable(apiMapper.selectOneByExample(ApiExample.newAndCreateCriteria()
+                .andDeletedEqualTo(false)
+                .andApiServiceEqualTo(service)
+                .andApiAddressEqualTo(path)
+                .andApiMethodEqualTo(httpMethod.toString())
+                .example()));
+    }
+
 
     public List<Api> selectApi(List<String> apiCodeList) {
         if (CollectionUtils.isEmpty(apiCodeList)) {

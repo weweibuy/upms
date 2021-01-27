@@ -127,7 +127,7 @@ public class PermissionInfoQueryManager {
     }
 
 
-    public List<ApiDataPermission> queryApiDataPermission(List<String> dataCodeList, String username) {
+    public List<ApiDataPermission> queryUserApiDataPermission(List<String> dataCodeList, String username) {
 
         List<IUserGroup> userGroup = iUserService.queryUserGroup(username);
 
@@ -144,9 +144,9 @@ public class PermissionInfoQueryManager {
         if (CollectionUtils.isEmpty(dataPermissionList1) && CollectionUtils.isEmpty(dataPermissionList2)) {
             return Collections.emptyList();
         }
-
-        dataPermissionList2.addAll(dataPermissionList1);
-        return dataPermissionList2;
+        return Stream.concat(dataPermissionList1.stream(), dataPermissionList2.stream())
+                .distinct()
+                .collect(Collectors.toList());
     }
 
 }

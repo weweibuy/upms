@@ -16,10 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -73,9 +70,28 @@ public class AuthenticationService {
                 .peek(a -> dataCodeList.add(a.getDataCode()))
                 .collect(Collectors.toMap(ApiDataPermissionField::getDataCode, Function.identity(), (o, n) -> n));
 
+        List<ApiDataPermission> dataPermission = permissionInfoQueryManager.queryUserApiDataPermission(dataCodeList, dataPermissionReq.getUsername());
+        // 数据权限乐观 控制
+        if (CollectionUtils.isEmpty(dataPermission)) {
+            return CommonDataResponse.success(Collections.emptyList());
+        }
+        List<DataPermissionRespDTO> permissionRespDTOList = dataPermission.stream()
+                .map(dp -> dataPermission(dp, dataCodeFieldMap.get(dp.getDataCode())))
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
 
-        List<ApiDataPermission> dataPermission = permissionInfoQueryManager.queryApiDataPermission(dataCodeList, dataPermissionReq.getUsername());
-
-        return null;
+        return CommonDataResponse.success(permissionRespDTOList);
     }
+
+
+    private DataPermissionRespDTO dataPermission(ApiDataPermission dataPermission, ApiDataPermissionField dataPermissionField) {
+        if (dataPermissionField == null) {
+            return null;
+        }
+        String dataValue = dataPermission.getDataValue();
+        String fieldName = dataPermissionField.getFieldName();
+        return DataPermissionRespDTO.fromNameAndValue(fieldName, dataValue);
+
+    }
+
 }

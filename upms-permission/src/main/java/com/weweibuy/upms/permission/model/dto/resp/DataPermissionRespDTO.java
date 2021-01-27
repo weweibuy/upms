@@ -19,6 +19,14 @@ public class DataPermissionRespDTO {
     /**
      * 字段值
      */
-    private Object fieldValue;
+    private String fieldValue;
+
+
+    public static DataPermissionRespDTO fromNameAndValue(String name, String fieldValue) {
+        DataPermissionRespDTO respDTO = new DataPermissionRespDTO();
+        respDTO.setFieldName(name);
+        respDTO.setFieldValue(fieldValue);
+        return respDTO;
+    }
 
 }

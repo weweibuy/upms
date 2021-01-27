@@ -33,8 +33,7 @@ public class AuthenticationController {
 
     @PostMapping("/data")
     public CommonDataResponse<List<DataPermissionRespDTO>> dataPermission(@RequestBody @Valid DataPermissionReqDTO dataPermissionReqDTO) {
-        authenticationService.dataPermission(dataPermissionReqDTO);
-        return null;
+        return authenticationService.dataPermission(dataPermissionReqDTO);
     }
 
 }

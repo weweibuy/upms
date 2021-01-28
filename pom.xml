@@ -15,6 +15,7 @@
         <module>upms-common</module>
         <module>upms-permission</module>
         <module>upms-interfaces</module>
+        <module>upms-app</module>
     </modules>
 
 
@@ -70,6 +71,12 @@
             <dependency>
                 <groupId>com.weweibuy.upms</groupId>
                 <artifactId>upms-launcher</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.weweibuy.upms</groupId>
+                <artifactId>upms-app</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

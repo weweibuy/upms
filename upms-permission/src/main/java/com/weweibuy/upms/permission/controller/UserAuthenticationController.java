@@ -22,7 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/permission")
 @RequiredArgsConstructor
-public class AuthenticationController {
+public class UserAuthenticationController {
 
     private final AuthenticationService authenticationService;
 

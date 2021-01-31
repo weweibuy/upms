@@ -123,7 +123,7 @@ public class AppExample {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
-            appSecretCriteria.add(new Criterion(condition, value, "com.weweibuy.framework.common.db.type.EncryptTypeHandler"));
+            appSecretCriteria.add(new Criterion(condition, value, "com.weweibuy.framework.common.db.type.AesEncryptTypeHandler"));
             allCriteria = null;
         }
 
@@ -131,7 +131,7 @@ public class AppExample {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
-            appSecretCriteria.add(new Criterion(condition, value1, value2, "com.weweibuy.framework.common.db.type.EncryptTypeHandler"));
+            appSecretCriteria.add(new Criterion(condition, value1, value2, "com.weweibuy.framework.common.db.type.AesEncryptTypeHandler"));
             allCriteria = null;
         }
 

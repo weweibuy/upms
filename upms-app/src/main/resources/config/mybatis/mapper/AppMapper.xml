@@ -6,7 +6,7 @@
     <result column="app_id" jdbcType="VARCHAR" property="appId" />
     <result column="app_name" jdbcType="VARCHAR" property="appName" />
     <result column="app_key" jdbcType="VARCHAR" property="appKey" />
-    <result column="app_secret" jdbcType="VARCHAR" property="appSecret" typeHandler="com.weweibuy.framework.common.db.type.EncryptTypeHandler" />
+    <result column="app_secret" jdbcType="VARCHAR" property="appSecret" typeHandler="com.weweibuy.framework.common.db.type.AesEncryptTypeHandler" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -41,15 +41,15 @@
                   and ${criterion.condition}
                 </when>
                 <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}
+                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}
                 </when>
                 <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler} and #{criterion.secondValue,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}
+                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler} and #{criterion.secondValue,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}
                 </when>
                 <when test="criterion.listValue">
                   and ${criterion.condition}
                   <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}
+                    #{listItem,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}
                   </foreach>
                 </when>
               </choose>
@@ -89,15 +89,15 @@
                   and ${criterion.condition}
                 </when>
                 <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}
+                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}
                 </when>
                 <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler} and #{criterion.secondValue,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}
+                  and ${criterion.condition} #{criterion.value,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler} and #{criterion.secondValue,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}
                 </when>
                 <when test="criterion.listValue">
                   and ${criterion.condition}
                   <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}
+                    #{listItem,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}
                   </foreach>
                 </when>
               </choose>
@@ -161,7 +161,7 @@
       is_delete, create_time, update_time
       )
     values (#{id,jdbcType=BIGINT}, #{appId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, 
-      #{appKey,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler}, 
+      #{appKey,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}, 
       #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -207,7 +207,7 @@
         #{appKey,jdbcType=VARCHAR},
       </if>
       <if test="appSecret != null">
-        #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler},
+        #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -242,7 +242,7 @@
         app_key = #{record.appKey,jdbcType=VARCHAR},
       </if>
       <if test="record.appSecret != null">
-        app_secret = #{record.appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler},
+        app_secret = #{record.appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -264,7 +264,7 @@
       app_id = #{record.appId,jdbcType=VARCHAR},
       app_name = #{record.appName,jdbcType=VARCHAR},
       app_key = #{record.appKey,jdbcType=VARCHAR},
-      app_secret = #{record.appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler},
+      app_secret = #{record.appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -285,7 +285,7 @@
         app_key = #{appKey,jdbcType=VARCHAR},
       </if>
       <if test="appSecret != null">
-        app_secret = #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler},
+        app_secret = #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -304,7 +304,7 @@
     set app_id = #{appId,jdbcType=VARCHAR},
       app_name = #{appName,jdbcType=VARCHAR},
       app_key = #{appKey,jdbcType=VARCHAR},
-      app_secret = #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.EncryptTypeHandler},
+      app_secret = #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

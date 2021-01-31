@@ -1,7 +1,8 @@
 package com.weweibuy.upms.permission.model.po;
 
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 public class ApiDataPermissionField {
@@ -44,6 +45,11 @@ public class ApiDataPermissionField {
      * 字段字典类型
      */
     private String fieldDictType;
+
+    /**
+     * 请求参数类型(0: query; 1: body)
+     */
+    private Integer reqParamType;
 
     /**
      * 是否删除

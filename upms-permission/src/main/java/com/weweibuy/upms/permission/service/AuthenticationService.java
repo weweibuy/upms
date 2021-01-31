@@ -88,9 +88,7 @@ public class AuthenticationService {
         if (dataPermissionField == null) {
             return null;
         }
-        String dataValue = dataPermission.getDataValue();
-        String fieldName = dataPermissionField.getFieldName();
-        return DataPermissionRespDTO.fromNameAndValue(fieldName, dataValue);
+        return DataPermissionRespDTO.fromDataPermission(dataPermission, dataPermissionField);
 
     }
 

@@ -84,6 +84,7 @@
 
         <table tableName="upms_api_data_permission_field" domainObjectName="ApiDataPermissionField" >
             <columnOverride column="is_delete"  property="deleted"  javaType="Boolean"/>
+            <columnOverride column="req_param_type" javaType="Integer"/>
         </table>
 
         <table tableName="upms_function" domainObjectName="Function" >

@@ -693,6 +693,66 @@ public class ApiDataPermissionFieldExample {
             return (Criteria) this;
         }
 
+        public Criteria andReqParamTypeIsNull() {
+            addCriterion("req_param_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeIsNotNull() {
+            addCriterion("req_param_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeEqualTo(Integer value) {
+            addCriterion("req_param_type =", value, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeNotEqualTo(Integer value) {
+            addCriterion("req_param_type <>", value, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeGreaterThan(Integer value) {
+            addCriterion("req_param_type >", value, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("req_param_type >=", value, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeLessThan(Integer value) {
+            addCriterion("req_param_type <", value, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("req_param_type <=", value, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeIn(List<Integer> values) {
+            addCriterion("req_param_type in", values, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeNotIn(List<Integer> values) {
+            addCriterion("req_param_type not in", values, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeBetween(Integer value1, Integer value2) {
+            addCriterion("req_param_type between", value1, value2, "reqParamType");
+            return (Criteria) this;
+        }
+
+        public Criteria andReqParamTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("req_param_type not between", value1, value2, "reqParamType");
+            return (Criteria) this;
+        }
+
         public Criteria andDeletedIsNull() {
             addCriterion("is_delete is null");
             return (Criteria) this;

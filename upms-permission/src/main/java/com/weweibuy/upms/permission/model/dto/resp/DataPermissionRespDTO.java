@@ -1,5 +1,7 @@
 package com.weweibuy.upms.permission.model.dto.resp;
 
+import com.weweibuy.upms.permission.model.po.ApiDataPermission;
+import com.weweibuy.upms.permission.model.po.ApiDataPermissionField;
 import lombok.Data;
 
 /**
@@ -21,11 +23,23 @@ public class DataPermissionRespDTO {
      */
     private String fieldValue;
 
+    /**
+     * 请求参数类型 0: query; 1: body
+     */
+    private Integer reqParamType;
 
-    public static DataPermissionRespDTO fromNameAndValue(String name, String fieldValue) {
+    /**
+     * 字段类型
+     */
+    private String fieldType;
+
+    public static DataPermissionRespDTO fromDataPermission(ApiDataPermission dataPermission,
+                                                           ApiDataPermissionField dataPermissionField) {
         DataPermissionRespDTO respDTO = new DataPermissionRespDTO();
-        respDTO.setFieldName(name);
-        respDTO.setFieldValue(fieldValue);
+        respDTO.setFieldName(dataPermissionField.getFieldName());
+        respDTO.setFieldValue(dataPermission.getDataValue());
+        respDTO.setReqParamType(dataPermissionField.getReqParamType());
+        respDTO.setFieldType(dataPermissionField.getFieldType());
         return respDTO;
     }
 

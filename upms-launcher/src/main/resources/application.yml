@@ -28,3 +28,9 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:config/mybatis/mapper/**/*.xml
+
+common:
+  db:
+    encrypt:
+      enable: true
+      password-file: classpath:db-encrypt.key

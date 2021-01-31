@@ -8,7 +8,7 @@
         <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
         <plugin type="com.itfsw.mybatis.generator.plugins.LombokPlugin"/>
         <!--<plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">-->
-            <!--<property name="allowMultiQueries" value="true"/>-->
+        <!--<property name="allowMultiQueries" value="true"/>-->
         <!--</plugin>-->
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
         <!--<plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>-->
@@ -20,13 +20,11 @@
         <plugin type="com.weweibuy.framework.mybatis.plugin.SelectByExampleForUpdatePlugin"/>
         <plugin type="com.itfsw.mybatis.generator.plugins.CommentPlugin">
             <!-- 自定义模板路径 -->
-            <property name="template" value="src/main/resources/generator/mybatis-generator-comment.ftl" />
+            <property name="template" value="src/main/resources/generator/mybatis-generator-comment.ftl"/>
         </plugin>
 
         <!-- Mapper注解插件 -->
         <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"/>
-
-
 
 
         <commentGenerator>
@@ -72,12 +70,13 @@
         </javaClientGenerator>
 
 
-        <table tableName="upms_app_api_relation" domainObjectName="AppApiRelation" >
-            <columnOverride column="is_delete"  property="deleted"  javaType="Boolean"/>
+        <table tableName="upms_app_api_relation" domainObjectName="AppApiRelation">
+            <columnOverride column="is_delete" property="deleted" javaType="Boolean"/>
         </table>
 
-        <table tableName="upms_app" domainObjectName="App" >
-            <columnOverride column="is_delete"  property="deleted"  javaType="Boolean"/>
+        <table tableName="upms_app" domainObjectName="App">
+            <columnOverride column="app_secret" typeHandler="com.weweibuy.framework.common.db.type.EncryptTypeHandler"/>
+            <columnOverride column="is_delete" property="deleted" javaType="Boolean"/>
         </table>
 
 

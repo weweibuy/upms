@@ -103,19 +103,50 @@ public class AppExample {
     }
 
     protected abstract static class GeneratedCriteria {
+        protected List<Criterion> appSecretCriteria;
+
+        protected List<Criterion> allCriteria;
+
         protected List<Criterion> criteria;
 
         protected GeneratedCriteria() {
             super();
             criteria = new ArrayList<Criterion>();
+            appSecretCriteria = new ArrayList<Criterion>();
+        }
+
+        public List<Criterion> getAppSecretCriteria() {
+            return appSecretCriteria;
+        }
+
+        protected void addAppSecretCriterion(String condition, Object value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            appSecretCriteria.add(new Criterion(condition, value, "com.weweibuy.framework.common.db.type.EncryptTypeHandler"));
+            allCriteria = null;
+        }
+
+        protected void addAppSecretCriterion(String condition, String value1, String value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            appSecretCriteria.add(new Criterion(condition, value1, value2, "com.weweibuy.framework.common.db.type.EncryptTypeHandler"));
+            allCriteria = null;
         }
 
         public boolean isValid() {
-            return criteria.size() > 0;
+            return criteria.size() > 0
+                || appSecretCriteria.size() > 0;
         }
 
         public List<Criterion> getAllCriteria() {
-            return criteria;
+            if (allCriteria == null) {
+                allCriteria = new ArrayList<Criterion>();
+                allCriteria.addAll(criteria);
+                allCriteria.addAll(appSecretCriteria);
+            }
+            return allCriteria;
         }
 
         public List<Criterion> getCriteria() {
@@ -127,6 +158,7 @@ public class AppExample {
                 throw new RuntimeException("Value for condition cannot be null");
             }
             criteria.add(new Criterion(condition));
+            allCriteria = null;
         }
 
         protected void addCriterion(String condition, Object value, String property) {
@@ -134,6 +166,7 @@ public class AppExample {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value));
+            allCriteria = null;
         }
 
         protected void addCriterion(String condition, Object value1, Object value2, String property) {
@@ -141,6 +174,7 @@ public class AppExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+            allCriteria = null;
         }
 
         public Criteria andIdIsNull() {
@@ -424,62 +458,62 @@ public class AppExample {
         }
 
         public Criteria andAppSecretEqualTo(String value) {
-            addCriterion("app_secret =", value, "appSecret");
+            addAppSecretCriterion("app_secret =", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretNotEqualTo(String value) {
-            addCriterion("app_secret <>", value, "appSecret");
+            addAppSecretCriterion("app_secret <>", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretGreaterThan(String value) {
-            addCriterion("app_secret >", value, "appSecret");
+            addAppSecretCriterion("app_secret >", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretGreaterThanOrEqualTo(String value) {
-            addCriterion("app_secret >=", value, "appSecret");
+            addAppSecretCriterion("app_secret >=", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretLessThan(String value) {
-            addCriterion("app_secret <", value, "appSecret");
+            addAppSecretCriterion("app_secret <", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretLessThanOrEqualTo(String value) {
-            addCriterion("app_secret <=", value, "appSecret");
+            addAppSecretCriterion("app_secret <=", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretLike(String value) {
-            addCriterion("app_secret like", value, "appSecret");
+            addAppSecretCriterion("app_secret like", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretNotLike(String value) {
-            addCriterion("app_secret not like", value, "appSecret");
+            addAppSecretCriterion("app_secret not like", value, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretIn(List<String> values) {
-            addCriterion("app_secret in", values, "appSecret");
+            addAppSecretCriterion("app_secret in", values, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretNotIn(List<String> values) {
-            addCriterion("app_secret not in", values, "appSecret");
+            addAppSecretCriterion("app_secret not in", values, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretBetween(String value1, String value2) {
-            addCriterion("app_secret between", value1, value2, "appSecret");
+            addAppSecretCriterion("app_secret between", value1, value2, "appSecret");
             return (Criteria) this;
         }
 
         public Criteria andAppSecretNotBetween(String value1, String value2) {
-            addCriterion("app_secret not between", value1, value2, "appSecret");
+            addAppSecretCriterion("app_secret not between", value1, value2, "appSecret");
             return (Criteria) this;
         }
 

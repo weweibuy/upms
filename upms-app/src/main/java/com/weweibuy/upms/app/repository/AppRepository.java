@@ -48,4 +48,8 @@ public class AppRepository {
     }
 
 
+    public int insertApp(App app) {
+        return appMapper.insertSelective(app);
+    }
+
 }

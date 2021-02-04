@@ -18,13 +18,13 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 @RequiredArgsConstructor
-public class AppAuthenticationService {
+public class AppAuthorizationService {
 
     private final AppRepository appRepository;
 
     private final IApiQueryService iApiQueryService;
 
-    public CommonDataResponse<AppAuthorizationRespDTO> appAuthentication(AppAuthorizationReqDTO reqDTO) {
+    public CommonDataResponse<AppAuthorizationRespDTO> appAuthorization(AppAuthorizationReqDTO reqDTO) {
         String appKey = reqDTO.getAppKey();
         App app = appRepository.selectApp(appKey)
                 .orElse(null);

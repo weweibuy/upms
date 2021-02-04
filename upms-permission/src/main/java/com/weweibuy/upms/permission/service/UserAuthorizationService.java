@@ -28,14 +28,14 @@ import java.util.stream.Collectors;
  **/
 @Service
 @RequiredArgsConstructor
-public class AuthenticationService {
+public class UserAuthorizationService {
 
     private final TokenManager tokenManager;
 
     private final PermissionInfoQueryManager permissionInfoQueryManager;
 
 
-    public CommonDataResponse<UserAuthorizationRespDTO> authentication(UserAuthorizationReqDTO req) {
+    public CommonDataResponse<UserAuthorizationRespDTO> authorization(UserAuthorizationReqDTO req) {
         TokenUserInfo tokenUserInfo = null;
         try {
             tokenUserInfo = tokenManager.tokenToUserInfo(req.getAuthorization());
@@ -57,7 +57,7 @@ public class AuthenticationService {
 
     }
 
-    public CommonDataResponse<List<DataPermissionRespDTO>> dataPermission(DataPermissionReqDTO dataPermissionReq) {
+    public CommonDataResponse<List<DataPermissionRespDTO>> dataAuthorization(DataPermissionReqDTO dataPermissionReq) {
         List<ApiDataPermissionField> permissionFieldList = permissionInfoQueryManager.queryApiDataPermissionField(
                 dataPermissionReq.getService(), dataPermissionReq.getPath(), dataPermissionReq.getHttpMethod());
         if (CollectionUtils.isEmpty(permissionFieldList)) {

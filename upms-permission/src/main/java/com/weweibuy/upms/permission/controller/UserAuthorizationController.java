@@ -5,7 +5,7 @@ import com.weweibuy.upms.permission.model.dto.req.DataPermissionReqDTO;
 import com.weweibuy.upms.permission.model.dto.req.UserAuthorizationReqDTO;
 import com.weweibuy.upms.permission.model.dto.resp.DataPermissionRespDTO;
 import com.weweibuy.upms.permission.model.dto.resp.UserAuthorizationRespDTO;
-import com.weweibuy.upms.permission.service.AuthenticationService;
+import com.weweibuy.upms.permission.service.UserAuthorizationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,24 +16,38 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
+ * 用户鉴权 相关接口
+ *
  * @author durenhao
  * @date 2021/1/24 11:24
  **/
 @RestController
-@RequestMapping("/permission")
+@RequestMapping("/user/authorization")
 @RequiredArgsConstructor
-public class UserAuthenticationController {
+public class UserAuthorizationController {
 
-    private final AuthenticationService authenticationService;
+    private final UserAuthorizationService authenticationService;
 
-    @PostMapping("/authentication")
-    public CommonDataResponse<UserAuthorizationRespDTO> authentication(@RequestBody @Valid UserAuthorizationReqDTO authorizationReq) {
-        return authenticationService.authentication(authorizationReq);
+    /**
+     * 鉴权接口
+     *
+     * @param authorizationReq
+     * @return
+     */
+    @PostMapping
+    public CommonDataResponse<UserAuthorizationRespDTO> authorization(@RequestBody @Valid UserAuthorizationReqDTO authorizationReq) {
+        return authenticationService.authorization(authorizationReq);
     }
 
+    /**
+     * 数据级权限接口
+     *
+     * @param dataPermissionReqDTO
+     * @return
+     */
     @PostMapping("/data")
-    public CommonDataResponse<List<DataPermissionRespDTO>> dataPermission(@RequestBody @Valid DataPermissionReqDTO dataPermissionReqDTO) {
-        return authenticationService.dataPermission(dataPermissionReqDTO);
+    public CommonDataResponse<List<DataPermissionRespDTO>> dataAuthorization(@RequestBody @Valid DataPermissionReqDTO dataPermissionReqDTO) {
+        return authenticationService.dataAuthorization(dataPermissionReqDTO);
     }
 
 }

@@ -493,62 +493,52 @@ public class ApiDataPermissionFieldExample {
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeEqualTo(String value) {
+        public Criteria andFieldTypeEqualTo(Integer value) {
             addCriterion("field_type =", value, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeNotEqualTo(String value) {
+        public Criteria andFieldTypeNotEqualTo(Integer value) {
             addCriterion("field_type <>", value, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeGreaterThan(String value) {
+        public Criteria andFieldTypeGreaterThan(Integer value) {
             addCriterion("field_type >", value, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeGreaterThanOrEqualTo(String value) {
+        public Criteria andFieldTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("field_type >=", value, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeLessThan(String value) {
+        public Criteria andFieldTypeLessThan(Integer value) {
             addCriterion("field_type <", value, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeLessThanOrEqualTo(String value) {
+        public Criteria andFieldTypeLessThanOrEqualTo(Integer value) {
             addCriterion("field_type <=", value, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeLike(String value) {
-            addCriterion("field_type like", value, "fieldType");
-            return (Criteria) this;
-        }
-
-        public Criteria andFieldTypeNotLike(String value) {
-            addCriterion("field_type not like", value, "fieldType");
-            return (Criteria) this;
-        }
-
-        public Criteria andFieldTypeIn(List<String> values) {
+        public Criteria andFieldTypeIn(List<Integer> values) {
             addCriterion("field_type in", values, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeNotIn(List<String> values) {
+        public Criteria andFieldTypeNotIn(List<Integer> values) {
             addCriterion("field_type not in", values, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeBetween(String value1, String value2) {
+        public Criteria andFieldTypeBetween(Integer value1, Integer value2) {
             addCriterion("field_type between", value1, value2, "fieldType");
             return (Criteria) this;
         }
 
-        public Criteria andFieldTypeNotBetween(String value1, String value2) {
+        public Criteria andFieldTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("field_type not between", value1, value2, "fieldType");
             return (Criteria) this;
         }
@@ -563,62 +553,52 @@ public class ApiDataPermissionFieldExample {
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeEqualTo(String value) {
+        public Criteria andInputTypeEqualTo(Integer value) {
             addCriterion("input_type =", value, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeNotEqualTo(String value) {
+        public Criteria andInputTypeNotEqualTo(Integer value) {
             addCriterion("input_type <>", value, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeGreaterThan(String value) {
+        public Criteria andInputTypeGreaterThan(Integer value) {
             addCriterion("input_type >", value, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeGreaterThanOrEqualTo(String value) {
+        public Criteria andInputTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("input_type >=", value, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeLessThan(String value) {
+        public Criteria andInputTypeLessThan(Integer value) {
             addCriterion("input_type <", value, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeLessThanOrEqualTo(String value) {
+        public Criteria andInputTypeLessThanOrEqualTo(Integer value) {
             addCriterion("input_type <=", value, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeLike(String value) {
-            addCriterion("input_type like", value, "inputType");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputTypeNotLike(String value) {
-            addCriterion("input_type not like", value, "inputType");
-            return (Criteria) this;
-        }
-
-        public Criteria andInputTypeIn(List<String> values) {
+        public Criteria andInputTypeIn(List<Integer> values) {
             addCriterion("input_type in", values, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeNotIn(List<String> values) {
+        public Criteria andInputTypeNotIn(List<Integer> values) {
             addCriterion("input_type not in", values, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeBetween(String value1, String value2) {
+        public Criteria andInputTypeBetween(Integer value1, Integer value2) {
             addCriterion("input_type between", value1, value2, "inputType");
             return (Criteria) this;
         }
 
-        public Criteria andInputTypeNotBetween(String value1, String value2) {
+        public Criteria andInputTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("input_type not between", value1, value2, "inputType");
             return (Criteria) this;
         }

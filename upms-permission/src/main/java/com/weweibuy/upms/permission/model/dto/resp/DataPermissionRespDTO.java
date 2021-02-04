@@ -31,7 +31,7 @@ public class DataPermissionRespDTO {
     /**
      * 字段类型
      */
-    private String fieldType;
+    private Integer fieldType;
 
     public static DataPermissionRespDTO fromDataPermission(ApiDataPermission dataPermission,
                                                            ApiDataPermissionField dataPermissionField) {

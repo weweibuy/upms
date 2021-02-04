@@ -7,8 +7,8 @@
     <result column="data_desc" jdbcType="VARCHAR" property="dataDesc" />
     <result column="api_code" jdbcType="VARCHAR" property="apiCode" />
     <result column="field_name" jdbcType="VARCHAR" property="fieldName" />
-    <result column="field_type" jdbcType="VARCHAR" property="fieldType" />
-    <result column="input_type" jdbcType="VARCHAR" property="inputType" />
+    <result column="field_type" jdbcType="TINYINT" property="fieldType" />
+    <result column="input_type" jdbcType="TINYINT" property="inputType" />
     <result column="field_dict_type" jdbcType="VARCHAR" property="fieldDictType" />
     <result column="req_param_type" jdbcType="TINYINT" property="reqParamType" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
@@ -129,8 +129,8 @@
       is_delete, create_time, update_time
       )
     values (#{id,jdbcType=BIGINT}, #{dataCode,jdbcType=VARCHAR}, #{dataDesc,jdbcType=VARCHAR}, 
-      #{apiCode,jdbcType=VARCHAR}, #{fieldName,jdbcType=VARCHAR}, #{fieldType,jdbcType=VARCHAR}, 
-      #{inputType,jdbcType=VARCHAR}, #{fieldDictType,jdbcType=VARCHAR}, #{reqParamType,jdbcType=TINYINT}, 
+      #{apiCode,jdbcType=VARCHAR}, #{fieldName,jdbcType=VARCHAR}, #{fieldType,jdbcType=TINYINT}, 
+      #{inputType,jdbcType=TINYINT}, #{fieldDictType,jdbcType=VARCHAR}, #{reqParamType,jdbcType=TINYINT}, 
       #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -191,10 +191,10 @@
         #{fieldName,jdbcType=VARCHAR},
       </if>
       <if test="fieldType != null">
-        #{fieldType,jdbcType=VARCHAR},
+        #{fieldType,jdbcType=TINYINT},
       </if>
       <if test="inputType != null">
-        #{inputType,jdbcType=VARCHAR},
+        #{inputType,jdbcType=TINYINT},
       </if>
       <if test="fieldDictType != null">
         #{fieldDictType,jdbcType=VARCHAR},
@@ -238,10 +238,10 @@
         field_name = #{record.fieldName,jdbcType=VARCHAR},
       </if>
       <if test="record.fieldType != null">
-        field_type = #{record.fieldType,jdbcType=VARCHAR},
+        field_type = #{record.fieldType,jdbcType=TINYINT},
       </if>
       <if test="record.inputType != null">
-        input_type = #{record.inputType,jdbcType=VARCHAR},
+        input_type = #{record.inputType,jdbcType=TINYINT},
       </if>
       <if test="record.fieldDictType != null">
         field_dict_type = #{record.fieldDictType,jdbcType=VARCHAR},
@@ -270,8 +270,8 @@
       data_desc = #{record.dataDesc,jdbcType=VARCHAR},
       api_code = #{record.apiCode,jdbcType=VARCHAR},
       field_name = #{record.fieldName,jdbcType=VARCHAR},
-      field_type = #{record.fieldType,jdbcType=VARCHAR},
-      input_type = #{record.inputType,jdbcType=VARCHAR},
+      field_type = #{record.fieldType,jdbcType=TINYINT},
+      input_type = #{record.inputType,jdbcType=TINYINT},
       field_dict_type = #{record.fieldDictType,jdbcType=VARCHAR},
       req_param_type = #{record.reqParamType,jdbcType=TINYINT},
       is_delete = #{record.deleted,jdbcType=BIT},
@@ -297,10 +297,10 @@
         field_name = #{fieldName,jdbcType=VARCHAR},
       </if>
       <if test="fieldType != null">
-        field_type = #{fieldType,jdbcType=VARCHAR},
+        field_type = #{fieldType,jdbcType=TINYINT},
       </if>
       <if test="inputType != null">
-        input_type = #{inputType,jdbcType=VARCHAR},
+        input_type = #{inputType,jdbcType=TINYINT},
       </if>
       <if test="fieldDictType != null">
         field_dict_type = #{fieldDictType,jdbcType=VARCHAR},
@@ -326,8 +326,8 @@
       data_desc = #{dataDesc,jdbcType=VARCHAR},
       api_code = #{apiCode,jdbcType=VARCHAR},
       field_name = #{fieldName,jdbcType=VARCHAR},
-      field_type = #{fieldType,jdbcType=VARCHAR},
-      input_type = #{inputType,jdbcType=VARCHAR},
+      field_type = #{fieldType,jdbcType=TINYINT},
+      input_type = #{inputType,jdbcType=TINYINT},
       field_dict_type = #{fieldDictType,jdbcType=VARCHAR},
       req_param_type = #{reqParamType,jdbcType=TINYINT},
       is_delete = #{deleted,jdbcType=BIT},

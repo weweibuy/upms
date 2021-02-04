@@ -1,8 +1,7 @@
 package com.weweibuy.upms.permission.model.po;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
+import lombok.Data;
 
 @Data
 public class ApiDataPermissionField {
@@ -32,14 +31,14 @@ public class ApiDataPermissionField {
     private String fieldName;
 
     /**
-     * 字段类型
+     * 字段类型(0:STRING; 1:NUMBER; 2: BOOLEAN; 3: COLLECTION_STRING; 4: COLLECTION_NUMBER)
      */
-    private String fieldType;
+    private Integer fieldType;
 
     /**
-     * 字段输入类型(前端输入类型)
+     * 字段输入类型(前端输入类型, 0: 输入框输入; 1:字典选择)
      */
-    private String inputType;
+    private Integer inputType;
 
     /**
      * 字段字典类型

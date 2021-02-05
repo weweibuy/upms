@@ -11,7 +11,7 @@ public class App {
     private Long id;
 
     /**
-     * app_id
+     * app_id(即client_id)
      */
     private String appId;
 
@@ -21,12 +21,7 @@ public class App {
     private String appName;
 
     /**
-     * app_key
-     */
-    private String appKey;
-
-    /**
-     * app_secret
+     * app_secret(即:client_secret;  AES密文)
      */
     private String appSecret;
 

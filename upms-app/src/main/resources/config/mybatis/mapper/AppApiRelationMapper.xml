@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.weweibuy.upms.app.model.po.AppApiRelation">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="api_code" jdbcType="VARCHAR" property="apiCode" />
-    <result column="app_key" jdbcType="VARCHAR" property="appKey" />
+    <result column="app_id" jdbcType="VARCHAR" property="appId" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, api_code, app_key, is_delete, create_time, update_time
+    id, api_code, app_id, is_delete, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.weweibuy.upms.app.model.example.AppApiRelationExample" resultMap="BaseResultMap">
     select
@@ -116,10 +116,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.weweibuy.upms.app.model.po.AppApiRelation">
-    insert into upms_app_api_relation (id, api_code, app_key, 
+    insert into upms_app_api_relation (id, api_code, app_id, 
       is_delete, create_time, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{apiCode,jdbcType=VARCHAR}, #{appKey,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{apiCode,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, 
       #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -132,8 +132,8 @@
       <if test="apiCode != null">
         api_code,
       </if>
-      <if test="appKey != null">
-        app_key,
+      <if test="appId != null">
+        app_id,
       </if>
       <if test="deleted != null">
         is_delete,
@@ -152,8 +152,8 @@
       <if test="apiCode != null">
         #{apiCode,jdbcType=VARCHAR},
       </if>
-      <if test="appKey != null">
-        #{appKey,jdbcType=VARCHAR},
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         #{deleted,jdbcType=BIT},
@@ -181,8 +181,8 @@
       <if test="record.apiCode != null">
         api_code = #{record.apiCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.appKey != null">
-        app_key = #{record.appKey,jdbcType=VARCHAR},
+      <if test="record.appId != null">
+        app_id = #{record.appId,jdbcType=VARCHAR},
       </if>
       <if test="record.deleted != null">
         is_delete = #{record.deleted,jdbcType=BIT},
@@ -202,7 +202,7 @@
     update upms_app_api_relation
     set id = #{record.id,jdbcType=BIGINT},
       api_code = #{record.apiCode,jdbcType=VARCHAR},
-      app_key = #{record.appKey,jdbcType=VARCHAR},
+      app_id = #{record.appId,jdbcType=VARCHAR},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -216,8 +216,8 @@
       <if test="apiCode != null">
         api_code = #{apiCode,jdbcType=VARCHAR},
       </if>
-      <if test="appKey != null">
-        app_key = #{appKey,jdbcType=VARCHAR},
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=VARCHAR},
       </if>
       <if test="deleted != null">
         is_delete = #{deleted,jdbcType=BIT},
@@ -234,7 +234,7 @@
   <update id="updateByPrimaryKey" parameterType="com.weweibuy.upms.app.model.po.AppApiRelation">
     update upms_app_api_relation
     set api_code = #{apiCode,jdbcType=VARCHAR},
-      app_key = #{appKey,jdbcType=VARCHAR},
+      app_id = #{appId,jdbcType=VARCHAR},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

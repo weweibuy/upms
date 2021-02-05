@@ -2,7 +2,9 @@ package com.weweibuy.upms.app.model.dto.req;
 
 import lombok.Data;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.server.reactive.ServerHttpRequest;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * App 鉴权请求
@@ -13,28 +15,19 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 @Data
 public class AppAuthorizationReqDTO {
 
-    private String appKey;
+    @NotBlank
+    private String clientId;
 
+    @NotNull
     private HttpMethod httpMethod;
 
+    @NotBlank
     private String path;
 
+    @NotBlank
     private String service;
 
-    public AppAuthorizationReqDTO() {
-    }
+    @NotBlank
+    private String accessToken;
 
-    public AppAuthorizationReqDTO(String appKey, HttpMethod httpMethod, String path, String service) {
-        this.appKey = appKey;
-        this.httpMethod = httpMethod;
-        this.path = path;
-        this.service = service;
-    }
-
-    public AppAuthorizationReqDTO(String appKey, String service, ServerHttpRequest request) {
-        this.service = service;
-        this.appKey = appKey;
-        this.httpMethod = request.getMethod();
-        this.path = request.getURI().getPath();
-    }
 }

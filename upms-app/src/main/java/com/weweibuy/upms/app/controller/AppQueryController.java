@@ -22,9 +22,9 @@ public class AppQueryController {
     private final AppQueryService appQueryService;
 
     @GetMapping("/key")
-    public CommonDataResponse<AppRespDTO> queryByAppKey(String appKey) {
-        return Optional.ofNullable(appKey)
-                .map(appQueryService::queryByAppKey)
+    public CommonDataResponse<AppRespDTO> queryByAppKey(String appId) {
+        return Optional.ofNullable(appId)
+                .map(appQueryService::queryByAppId)
                 .map(CommonDataResponse::success)
                 .orElse(CommonDataResponse.success(null));
     }

@@ -16,8 +16,8 @@ public class AppQueryService {
 
     private final AppRepository appRepository;
 
-    public AppRespDTO queryByAppKey(String appKey) {
-        return appRepository.selectApp(appKey)
+    public AppRespDTO queryByAppId(String appId) {
+        return appRepository.selectApp(appId)
                 .map(a -> BeanCopyUtils.copy(a, AppRespDTO.class))
                 .orElse(null);
     }

@@ -5,7 +5,6 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="app_id" jdbcType="VARCHAR" property="appId" />
     <result column="app_name" jdbcType="VARCHAR" property="appName" />
-    <result column="app_key" jdbcType="VARCHAR" property="appKey" />
     <result column="app_secret" jdbcType="VARCHAR" property="appSecret" typeHandler="com.weweibuy.framework.common.db.type.AesEncryptTypeHandler" />
     <result column="is_delete" jdbcType="BIT" property="deleted" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -108,7 +107,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, app_id, app_name, app_key, app_secret, is_delete, create_time, update_time
+    id, app_id, app_name, app_secret, is_delete, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.weweibuy.upms.app.model.example.AppExample" resultMap="BaseResultMap">
     select
@@ -157,11 +156,11 @@
   </delete>
   <insert id="insert" parameterType="com.weweibuy.upms.app.model.po.App">
     insert into upms_app (id, app_id, app_name, 
-      app_key, app_secret, 
+      app_secret, 
       is_delete, create_time, update_time
       )
     values (#{id,jdbcType=BIGINT}, #{appId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, 
-      #{appKey,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}, 
+      #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler}, 
       #{deleted,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -176,9 +175,6 @@
       </if>
       <if test="appName != null">
         app_name,
-      </if>
-      <if test="appKey != null">
-        app_key,
       </if>
       <if test="appSecret != null">
         app_secret,
@@ -202,9 +198,6 @@
       </if>
       <if test="appName != null">
         #{appName,jdbcType=VARCHAR},
-      </if>
-      <if test="appKey != null">
-        #{appKey,jdbcType=VARCHAR},
       </if>
       <if test="appSecret != null">
         #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
@@ -238,9 +231,6 @@
       <if test="record.appName != null">
         app_name = #{record.appName,jdbcType=VARCHAR},
       </if>
-      <if test="record.appKey != null">
-        app_key = #{record.appKey,jdbcType=VARCHAR},
-      </if>
       <if test="record.appSecret != null">
         app_secret = #{record.appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       </if>
@@ -263,7 +253,6 @@
     set id = #{record.id,jdbcType=BIGINT},
       app_id = #{record.appId,jdbcType=VARCHAR},
       app_name = #{record.appName,jdbcType=VARCHAR},
-      app_key = #{record.appKey,jdbcType=VARCHAR},
       app_secret = #{record.appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       is_delete = #{record.deleted,jdbcType=BIT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -280,9 +269,6 @@
       </if>
       <if test="appName != null">
         app_name = #{appName,jdbcType=VARCHAR},
-      </if>
-      <if test="appKey != null">
-        app_key = #{appKey,jdbcType=VARCHAR},
       </if>
       <if test="appSecret != null">
         app_secret = #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
@@ -303,7 +289,6 @@
     update upms_app
     set app_id = #{appId,jdbcType=VARCHAR},
       app_name = #{appName,jdbcType=VARCHAR},
-      app_key = #{appKey,jdbcType=VARCHAR},
       app_secret = #{appSecret,jdbcType=VARCHAR,typeHandler=com.weweibuy.framework.common.db.type.AesEncryptTypeHandler},
       is_delete = #{deleted,jdbcType=BIT},
       create_time = #{createTime,jdbcType=TIMESTAMP},

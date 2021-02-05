@@ -17,9 +17,6 @@ public class AppAuthorizationRespDTO {
 
     private String appName;
 
-    // TODO 脱敏
-    private String appKey;
-
     private String appSecret;
 
     /**
@@ -31,7 +28,6 @@ public class AppAuthorizationRespDTO {
         AppAuthorizationRespDTO respDTO = new AppAuthorizationRespDTO();
         respDTO.setService(reqDTO.getService());
         respDTO.setAppId(app.getAppId());
-        respDTO.setAppKey(app.getAppKey());
         respDTO.setAppSecret(app.getAppSecret());
         respDTO.setAppName(app.getAppName());
         return respDTO;

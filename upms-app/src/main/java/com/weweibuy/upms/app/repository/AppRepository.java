@@ -24,26 +24,26 @@ public class AppRepository {
 
     private final AppApiRelationMapper appApiRelationMapper;
 
-    public Optional<App> selectApp(String appKey) {
+    public Optional<App> selectApp(String appId) {
         return Optional.ofNullable(appMapper.selectOneByExample(AppExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andAppKeyEqualTo(appKey)
+                .andAppIdEqualTo(appId)
                 .example()));
     }
 
-    public Optional<AppApiRelation> selectAppApi(String appKey, String apiCode) {
+    public Optional<AppApiRelation> selectAppApi(String appId, String apiCode) {
         return Optional.ofNullable(appApiRelationMapper.selectOneByExample(AppApiRelationExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andAppKeyEqualTo(appKey)
+                .andAppIdEqualTo(appId)
                 .andApiCodeEqualTo(apiCode)
                 .example()));
     }
 
 
-    public List<AppApiRelation> selectAppApi(String appKey) {
+    public List<AppApiRelation> selectAppApi(String appId) {
         return appApiRelationMapper.selectByExample(AppApiRelationExample.newAndCreateCriteria()
                 .andDeletedEqualTo(false)
-                .andAppKeyEqualTo(appKey)
+                .andAppIdEqualTo(appId)
                 .example());
     }
 

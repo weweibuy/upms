@@ -273,73 +273,73 @@ public class AppApiRelationExample {
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyIsNull() {
-            addCriterion("app_key is null");
+        public Criteria andAppIdIsNull() {
+            addCriterion("app_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyIsNotNull() {
-            addCriterion("app_key is not null");
+        public Criteria andAppIdIsNotNull() {
+            addCriterion("app_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyEqualTo(String value) {
-            addCriterion("app_key =", value, "appKey");
+        public Criteria andAppIdEqualTo(String value) {
+            addCriterion("app_id =", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyNotEqualTo(String value) {
-            addCriterion("app_key <>", value, "appKey");
+        public Criteria andAppIdNotEqualTo(String value) {
+            addCriterion("app_id <>", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyGreaterThan(String value) {
-            addCriterion("app_key >", value, "appKey");
+        public Criteria andAppIdGreaterThan(String value) {
+            addCriterion("app_id >", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyGreaterThanOrEqualTo(String value) {
-            addCriterion("app_key >=", value, "appKey");
+        public Criteria andAppIdGreaterThanOrEqualTo(String value) {
+            addCriterion("app_id >=", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyLessThan(String value) {
-            addCriterion("app_key <", value, "appKey");
+        public Criteria andAppIdLessThan(String value) {
+            addCriterion("app_id <", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyLessThanOrEqualTo(String value) {
-            addCriterion("app_key <=", value, "appKey");
+        public Criteria andAppIdLessThanOrEqualTo(String value) {
+            addCriterion("app_id <=", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyLike(String value) {
-            addCriterion("app_key like", value, "appKey");
+        public Criteria andAppIdLike(String value) {
+            addCriterion("app_id like", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyNotLike(String value) {
-            addCriterion("app_key not like", value, "appKey");
+        public Criteria andAppIdNotLike(String value) {
+            addCriterion("app_id not like", value, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyIn(List<String> values) {
-            addCriterion("app_key in", values, "appKey");
+        public Criteria andAppIdIn(List<String> values) {
+            addCriterion("app_id in", values, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyNotIn(List<String> values) {
-            addCriterion("app_key not in", values, "appKey");
+        public Criteria andAppIdNotIn(List<String> values) {
+            addCriterion("app_id not in", values, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyBetween(String value1, String value2) {
-            addCriterion("app_key between", value1, value2, "appKey");
+        public Criteria andAppIdBetween(String value1, String value2) {
+            addCriterion("app_id between", value1, value2, "appId");
             return (Criteria) this;
         }
 
-        public Criteria andAppKeyNotBetween(String value1, String value2) {
-            addCriterion("app_key not between", value1, value2, "appKey");
+        public Criteria andAppIdNotBetween(String value1, String value2) {
+            addCriterion("app_id not between", value1, value2, "appId");
             return (Criteria) this;
         }
 

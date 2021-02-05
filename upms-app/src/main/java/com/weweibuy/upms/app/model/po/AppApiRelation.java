@@ -18,7 +18,7 @@ public class AppApiRelation {
     /**
      * app_key
      */
-    private String appKey;
+    private String appId;
 
     /**
      * 是否删除

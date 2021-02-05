@@ -25,8 +25,9 @@ public class AppAuthorizationService {
     private final IApiQueryService iApiQueryService;
 
     public CommonDataResponse<AppAuthorizationRespDTO> appAuthorization(AppAuthorizationReqDTO reqDTO) {
-        String appKey = reqDTO.getAppKey();
-        App app = appRepository.selectApp(appKey)
+        // TODO accessToken 验证
+        String clientId = reqDTO.getClientId();
+        App app = appRepository.selectApp(clientId)
                 .orElse(null);
         if (app == null) {
             return CommonDataResponse.response(CommonErrorCodeEum.UNAUTHORIZED, null);
@@ -36,7 +37,7 @@ public class AppAuthorizationService {
         if (api == null) {
             return CommonDataResponse.response(CommonErrorCodeEum.FORBIDDEN, null);
         }
-        AppApiRelation appApiRelation = appRepository.selectAppApi(appKey, api.getApiCode())
+        AppApiRelation appApiRelation = appRepository.selectAppApi(clientId, api.getApiCode())
                 .orElse(null);
         if (appApiRelation == null) {
             return CommonDataResponse.response(CommonErrorCodeEum.FORBIDDEN, null);

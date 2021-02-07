@@ -6,11 +6,15 @@ import com.weweibuy.upms.app.model.dto.req.AppAuthorizationReqDTO;
 import com.weweibuy.upms.app.model.dto.resp.AppAuthorizationRespDTO;
 import com.weweibuy.upms.app.model.po.App;
 import com.weweibuy.upms.app.model.po.AppApiRelation;
+import com.weweibuy.upms.app.model.po.AppToken;
 import com.weweibuy.upms.app.repository.AppRepository;
+import com.weweibuy.upms.app.repository.AppTokenRepository;
 import com.weweibuy.upms.interfaces.api.IApiQueryService;
 import com.weweibuy.upms.interfaces.api.model.IApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 /**
  * @author durenhao
@@ -24,10 +28,21 @@ public class AppAuthorizationService {
 
     private final IApiQueryService iApiQueryService;
 
+    private final AppTokenRepository appTokenRepository;
+
     public CommonDataResponse<AppAuthorizationRespDTO> appAuthorization(AppAuthorizationReqDTO reqDTO) {
-        // TODO accessToken 验证
-        String clientId = reqDTO.getClientId();
-        App app = appRepository.selectApp(clientId)
+        String accessToken = reqDTO.getAccessToken();
+        AppToken appToken = appTokenRepository.selectToken(accessToken)
+                .orElse(null);
+        if (appToken == null) {
+            return CommonDataResponse.response(CommonErrorCodeEum.UNAUTHORIZED, null);
+        }
+        if (appToken.getAccessTokenExpireAt().compareTo(LocalDateTime.now()) <= 0) {
+            return CommonDataResponse.response(CommonErrorCodeEum.TOKEN_INVALID, null);
+        }
+
+        String appId = appToken.getAppId();
+        App app = appRepository.selectApp(appId)
                 .orElse(null);
         if (app == null) {
             return CommonDataResponse.response(CommonErrorCodeEum.UNAUTHORIZED, null);
@@ -37,7 +52,7 @@ public class AppAuthorizationService {
         if (api == null) {
             return CommonDataResponse.response(CommonErrorCodeEum.FORBIDDEN, null);
         }
-        AppApiRelation appApiRelation = appRepository.selectAppApi(clientId, api.getApiCode())
+        AppApiRelation appApiRelation = appRepository.selectAppApi(appId, api.getApiCode())
                 .orElse(null);
         if (appApiRelation == null) {
             return CommonDataResponse.response(CommonErrorCodeEum.FORBIDDEN, null);

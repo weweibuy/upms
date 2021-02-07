@@ -15,9 +15,6 @@ import javax.validation.constraints.NotNull;
 @Data
 public class AppAuthorizationReqDTO {
 
-    @NotBlank
-    private String clientId;
-
     @NotNull
     private HttpMethod httpMethod;
 

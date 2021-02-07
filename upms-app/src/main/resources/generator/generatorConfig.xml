@@ -79,6 +79,9 @@
             <columnOverride column="is_delete" property="deleted" javaType="Boolean"/>
         </table>
 
+        <table tableName="upms_app_token" domainObjectName="AppToken">
+            <columnOverride column="is_delete" property="deleted" javaType="Boolean"/>
+        </table>
 
     </context>
 </generatorConfiguration>

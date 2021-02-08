@@ -1,7 +1,8 @@
 package com.weweibuy.upms.app.model.po;
 
-import java.time.LocalDateTime;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 @Data
 public class App {
@@ -24,6 +25,11 @@ public class App {
      * app_secret(即:client_secret;  AES密文)
      */
     private String appSecret;
+
+    /**
+     * 加密key(给客户AES加密,app_secret用)
+     */
+    private String encryptKey;
 
     /**
      * 是否删除

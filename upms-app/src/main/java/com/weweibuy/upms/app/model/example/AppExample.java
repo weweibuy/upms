@@ -447,6 +447,76 @@ public class AppExample {
             return (Criteria) this;
         }
 
+        public Criteria andEncryptKeyIsNull() {
+            addCriterion("encrypt_key is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyIsNotNull() {
+            addCriterion("encrypt_key is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyEqualTo(String value) {
+            addCriterion("encrypt_key =", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyNotEqualTo(String value) {
+            addCriterion("encrypt_key <>", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyGreaterThan(String value) {
+            addCriterion("encrypt_key >", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyGreaterThanOrEqualTo(String value) {
+            addCriterion("encrypt_key >=", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyLessThan(String value) {
+            addCriterion("encrypt_key <", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyLessThanOrEqualTo(String value) {
+            addCriterion("encrypt_key <=", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyLike(String value) {
+            addCriterion("encrypt_key like", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyNotLike(String value) {
+            addCriterion("encrypt_key not like", value, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyIn(List<String> values) {
+            addCriterion("encrypt_key in", values, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyNotIn(List<String> values) {
+            addCriterion("encrypt_key not in", values, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyBetween(String value1, String value2) {
+            addCriterion("encrypt_key between", value1, value2, "encryptKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andEncryptKeyNotBetween(String value1, String value2) {
+            addCriterion("encrypt_key not between", value1, value2, "encryptKey");
+            return (Criteria) this;
+        }
+
         public Criteria andDeletedIsNull() {
             addCriterion("is_delete is null");
             return (Criteria) this;

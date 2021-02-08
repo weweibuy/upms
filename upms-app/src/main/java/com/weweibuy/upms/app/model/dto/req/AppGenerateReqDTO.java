@@ -26,6 +26,8 @@ public class AppGenerateReqDTO {
         app.setAppName(appName);
         String generate = PasswordGenerateUtils.generate(32);
         app.setAppSecret(generate);
+        app.setEncryptKey(PasswordGenerateUtils.generate(16));
         return app;
     }
+
 }

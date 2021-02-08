@@ -30,4 +30,12 @@ public class AppQueryController {
     }
 
 
+    @GetMapping("/accessToken")
+    public CommonDataResponse<AppRespDTO> queryByAccessToken(String accessToken) {
+        return Optional.ofNullable(accessToken)
+                .map(appQueryService::queryByAccessToken)
+                .map(CommonDataResponse::success)
+                .orElse(CommonDataResponse.success(null));
+    }
+
 }

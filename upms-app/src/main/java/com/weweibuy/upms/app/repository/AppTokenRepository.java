@@ -6,6 +6,7 @@ import com.weweibuy.upms.app.model.po.AppToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -30,9 +31,17 @@ public class AppTokenRepository {
                         .orderBy("id desc")));
     }
 
+    public List<AppToken> select(String appId) {
+        return appTokenMapper.selectByExample(
+                AppTokenExample.newAndCreateCriteria()
+                        .andDeletedEqualTo(false)
+                        .andAppIdEqualTo(appId)
+                        .example()
+                        .orderBy("id desc"));
+    }
 
     public int insertToken(AppToken appToken) {
-        return appTokenMapper.insert(appToken);
+        return appTokenMapper.insertSelective(appToken);
     }
 
 

@@ -15,16 +15,16 @@ import javax.validation.constraints.NotNull;
 @Data
 public class AppAuthorizationReqDTO {
 
-    @NotNull
+    @NotNull(message = "httpMethod不能为空")
     private HttpMethod httpMethod;
 
-    @NotBlank
+    @NotBlank(message = "path不能为空")
     private String path;
 
-    @NotBlank
+    @NotBlank(message = "service不能为空")
     private String service;
 
-    @NotBlank
+    @NotBlank(message = "accessToken不能为空")
     private String accessToken;
 
 }

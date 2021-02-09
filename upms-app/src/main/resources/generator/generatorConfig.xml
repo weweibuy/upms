@@ -76,6 +76,7 @@
 
         <table tableName="upms_app" domainObjectName="App">
             <columnOverride column="app_secret" typeHandler="com.weweibuy.framework.common.db.type.AesEncryptTypeHandler"/>
+            <columnOverride column="encrypt_key" typeHandler="com.weweibuy.framework.common.db.type.AesEncryptTypeHandler"/>
             <columnOverride column="is_delete" property="deleted" javaType="Boolean"/>
         </table>
 

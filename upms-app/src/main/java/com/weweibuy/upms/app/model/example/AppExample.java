@@ -105,6 +105,8 @@ public class AppExample {
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> appSecretCriteria;
 
+        protected List<Criterion> encryptKeyCriteria;
+
         protected List<Criterion> allCriteria;
 
         protected List<Criterion> criteria;
@@ -113,6 +115,7 @@ public class AppExample {
             super();
             criteria = new ArrayList<Criterion>();
             appSecretCriteria = new ArrayList<Criterion>();
+            encryptKeyCriteria = new ArrayList<Criterion>();
         }
 
         public List<Criterion> getAppSecretCriteria() {
@@ -135,9 +138,30 @@ public class AppExample {
             allCriteria = null;
         }
 
+        public List<Criterion> getEncryptKeyCriteria() {
+            return encryptKeyCriteria;
+        }
+
+        protected void addEncryptKeyCriterion(String condition, Object value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            encryptKeyCriteria.add(new Criterion(condition, value, "com.weweibuy.framework.common.db.type.AesEncryptTypeHandler"));
+            allCriteria = null;
+        }
+
+        protected void addEncryptKeyCriterion(String condition, String value1, String value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            encryptKeyCriteria.add(new Criterion(condition, value1, value2, "com.weweibuy.framework.common.db.type.AesEncryptTypeHandler"));
+            allCriteria = null;
+        }
+
         public boolean isValid() {
             return criteria.size() > 0
-                || appSecretCriteria.size() > 0;
+                || appSecretCriteria.size() > 0
+                || encryptKeyCriteria.size() > 0;
         }
 
         public List<Criterion> getAllCriteria() {
@@ -145,6 +169,7 @@ public class AppExample {
                 allCriteria = new ArrayList<Criterion>();
                 allCriteria.addAll(criteria);
                 allCriteria.addAll(appSecretCriteria);
+                allCriteria.addAll(encryptKeyCriteria);
             }
             return allCriteria;
         }
@@ -458,62 +483,62 @@ public class AppExample {
         }
 
         public Criteria andEncryptKeyEqualTo(String value) {
-            addCriterion("encrypt_key =", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key =", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyNotEqualTo(String value) {
-            addCriterion("encrypt_key <>", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key <>", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyGreaterThan(String value) {
-            addCriterion("encrypt_key >", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key >", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyGreaterThanOrEqualTo(String value) {
-            addCriterion("encrypt_key >=", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key >=", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyLessThan(String value) {
-            addCriterion("encrypt_key <", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key <", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyLessThanOrEqualTo(String value) {
-            addCriterion("encrypt_key <=", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key <=", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyLike(String value) {
-            addCriterion("encrypt_key like", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key like", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyNotLike(String value) {
-            addCriterion("encrypt_key not like", value, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key not like", value, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyIn(List<String> values) {
-            addCriterion("encrypt_key in", values, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key in", values, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyNotIn(List<String> values) {
-            addCriterion("encrypt_key not in", values, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key not in", values, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyBetween(String value1, String value2) {
-            addCriterion("encrypt_key between", value1, value2, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key between", value1, value2, "encryptKey");
             return (Criteria) this;
         }
 
         public Criteria andEncryptKeyNotBetween(String value1, String value2) {
-            addCriterion("encrypt_key not between", value1, value2, "encryptKey");
+            addEncryptKeyCriterion("encrypt_key not between", value1, value2, "encryptKey");
             return (Criteria) this;
         }
 

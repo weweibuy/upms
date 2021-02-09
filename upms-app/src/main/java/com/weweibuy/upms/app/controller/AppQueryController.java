@@ -21,7 +21,7 @@ public class AppQueryController {
 
     private final AppQueryService appQueryService;
 
-    @GetMapping("/key")
+    @GetMapping("/appId")
     public CommonDataResponse<AppRespDTO> queryByAppKey(String appId) {
         return Optional.ofNullable(appId)
                 .map(appQueryService::queryByAppId)

@@ -1,6 +1,8 @@
 package com.weweibuy.upms.app.service;
 
 import com.weweibuy.framework.common.core.exception.Exceptions;
+import com.weweibuy.framework.common.core.model.eum.CommonErrorCodeEum;
+import com.weweibuy.framework.common.core.utils.DateTimeUtils;
 import com.weweibuy.framework.common.core.utils.IdWorker;
 import com.weweibuy.framework.common.core.utils.OptionalEnhance;
 import com.weweibuy.upms.app.config.AppAuthenticationProperties;
@@ -12,9 +14,13 @@ import com.weweibuy.upms.app.repository.AppRepository;
 import com.weweibuy.upms.app.repository.AppTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 认证相关服务
@@ -33,13 +39,27 @@ public class AppAuthenticationService {
     private final AppAuthenticationProperties appAuthenticationProperties;
 
     public AppAccessTokenRespDTO authentication(AppAccessTokenReqDTO accessTokenRepDTO) {
-        return OptionalEnhance.fromOptional(appRepository.selectApp(accessTokenRepDTO.getAppId()))
-                .filter(app -> accessTokenRepDTO.validateAppSecret(app))
-                .map(this::buildToken)
-                .peek(appTokenRepository::insertToken)
+        App dbApp = OptionalEnhance.fromOptional(appRepository.selectApp(accessTokenRepDTO.getAppId()))
+                .peek(app -> accessTokenRepDTO.validateAppSecret(app, appAuthenticationProperties))
+                .orElseThrow(() -> Exceptions.responseStatusException(HttpStatus.UNAUTHORIZED, CommonErrorCodeEum.UNAUTHORIZED));
+
+        return OptionalEnhance.ofNullable(appTokenRepository.select(dbApp.getAppId()))
+                .filter(CollectionUtils::isNotEmpty)
+                .flatMapOptional(list -> list.stream().sorted(Comparator.comparing(AppToken::getAccessTokenExpireAt).reversed())
+                        .findFirst())
+                .filter(token -> DateTimeUtils.isOverInterval(token.getAccessTokenExpireAt(), LocalDateTime.now(),
+                        appAuthenticationProperties.getApplyNextTokenIntervalMin(), TimeUnit.MINUTES))
                 .map(AppAccessTokenRespDTO::fromAppToken)
-                // TODO 认证失败
-                .orElseThrow(() -> Exceptions.unknown());
+                .orElseGet(() -> AppAccessTokenRespDTO.fromAppToken(buildAndInsertToken(dbApp)));
+    }
+
+
+    public AppToken buildAndInsertToken(App app) {
+        AppToken appToken = buildToken(app);
+        // TODO 加锁控制
+
+        appTokenRepository.insertToken(appToken);
+        return appToken;
     }
 
 

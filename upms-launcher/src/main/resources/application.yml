@@ -5,6 +5,13 @@ server:
 spring:
   application:
     name: upms
+  ldap:
+    urls: 106.12.208.53:1389
+    username: cn=admin
+    password: ak402507979
+    base: dc=weweibuy,dc=com
+
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
@@ -17,6 +24,7 @@ spring:
 
   cloud:
     consul:
+      enabled: false
       host: 127.0.0.1
       discovery:
         prefer-ip-address: true

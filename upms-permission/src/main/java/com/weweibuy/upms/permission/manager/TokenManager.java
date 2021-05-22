@@ -38,7 +38,7 @@ public class TokenManager {
         Jwt<Header, Object> parser = JwtUtils.parser(key, token);
         Object body = parser.getBody();
         String write = JackJsonUtils.write(body);
-        return JackJsonUtils.readValue(write, TokenUserInfo.class);
+        return JackJsonUtils.readCamelCaseValue(write, TokenUserInfo.class);
     }
 
 

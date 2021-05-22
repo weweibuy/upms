@@ -6,8 +6,8 @@ spring:
   application:
     name: upms
   ldap:
-    urls: 106.12.208.53:1389
-    username: cn=admin
+    urls: ldap://106.12.208.53:1389
+    username: cn=admin,dc=weweibuy,dc=com
     password: ak402507979
     base: dc=weweibuy,dc=com
 

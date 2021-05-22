@@ -37,7 +37,7 @@ public class TokenManager {
     public TokenUserInfo tokenToUserInfo(String token) {
         Jwt<Header, Object> parser = JwtUtils.parser(key, token);
         Object body = parser.getBody();
-        String write = JackJsonUtils.write(body);
+        String write = JackJsonUtils.writeCamelCase(body);
         return JackJsonUtils.readCamelCaseValue(write, TokenUserInfo.class);
     }
 

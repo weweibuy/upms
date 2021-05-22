@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * @author durenhao
  * @date 2021/5/22 18:10
@@ -19,7 +21,7 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping("/login")
-    public CommonDataResponse login(@RequestBody  LoginReqDTO loginReqDTO){
+    public CommonDataResponse login(@RequestBody @Valid LoginReqDTO loginReqDTO){
         boolean login = loginService.login(loginReqDTO);
         return CommonDataResponse.success(login);
     }

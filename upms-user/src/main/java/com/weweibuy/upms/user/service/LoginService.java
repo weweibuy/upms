@@ -2,7 +2,7 @@ package com.weweibuy.upms.user.service;
 
 import com.weweibuy.upms.user.model.dto.request.LoginReqDTO;
 import com.weweibuy.upms.user.model.ldap.LdapUser;
-import com.weweibuy.upms.user.support.StringAttributesMapper;
+import com.weweibuy.upms.user.support.LdapUserAttributesMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.ldap.core.LdapTemplate;
@@ -22,6 +22,8 @@ public class LoginService {
 
     private LdapShaPasswordEncoder ldapShaPasswordEncoder = new LdapShaPasswordEncoder();
 
+    private LdapUserAttributesMapper ldapUserAttributesMapper = new LdapUserAttributesMapper();
+
     private final LdapTemplate ldapTemplate;
 
 
@@ -31,7 +33,7 @@ public class LoginService {
         EqualsFilter filter = new EqualsFilter("uid", username);
         List<LdapUser> search = ldapTemplate.search("",
                 filter.toString(),
-                new StringAttributesMapper());
+                ldapUserAttributesMapper);
         if (CollectionUtils.isNotEmpty(search) && matchPassword(password, search.get(0).getPassword())) {
             return true;
         }

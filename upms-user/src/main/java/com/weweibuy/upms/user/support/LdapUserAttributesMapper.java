@@ -10,7 +10,7 @@ import javax.naming.directory.Attributes;
  * @author durenhao
  * @date 2021/5/22 22:01
  **/
-public class StringAttributesMapper implements AttributesMapper<LdapUser> {
+public class LdapUserAttributesMapper implements AttributesMapper<LdapUser> {
 
     @Override
     public LdapUser mapFromAttributes(Attributes attributes) throws NamingException {

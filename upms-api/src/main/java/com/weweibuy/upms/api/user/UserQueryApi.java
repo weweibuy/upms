@@ -14,16 +14,15 @@ import java.util.List;
  * @author durenhao
  * @date 2020/10/24 21:18
  **/
-@RequestMapping("/user/query")
 public interface UserQueryApi {
 
-    @GetMapping
+    @GetMapping("/user/query")
     CommonDataResponse<UserRespDTO> queryUser(@RequestParam("username") String username);
 
-    @GetMapping("/list")
+    @GetMapping("/user/query/list")
     CommonDataResponse<List<UserRespDTO>> queryUser(@SpringQueryMap UserQueryReqDTO queryReqDTO);
 
-    @GetMapping("/count")
+    @GetMapping("/user/query/count")
     CommonDataResponse<Long> countUser(@SpringQueryMap UserQueryReqDTO queryReqDTO);
 
 }
